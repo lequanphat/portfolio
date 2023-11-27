@@ -79,9 +79,9 @@ const Container = styled.div`
     
     .logo {
         position: relative;
-        font-size: 2.1rem;
-        color: var(--text-color);
-        font-weight: 500;
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: var(--main-color);
         
     }
     .logo-animate, .navbar-animate, .menu-icon-animate{
