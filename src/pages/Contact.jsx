@@ -32,7 +32,7 @@ function Contact() {
                     <textarea name="" id="" cols={30} rows={10} placeholder="Your Message" required></textarea>
                     <span className="focus"></span>
                 </div>
-                <div className='btn-box'><Button>Submit</Button></div>
+                <div className='btn-box'><Button to={"/"}>Submit</Button></div>
             </form>
         </Container>
     );

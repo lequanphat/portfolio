@@ -19,7 +19,7 @@ function About() {
                     specimen book. type and scrambled it to make a type specimen book.
                 </p>
                 <div className="btn-box btns">
-                    <Button>Read More</Button>
+                    <Button to="education">Read More</Button>
                 </div>
             </div>
         </Container>
@@ -66,14 +66,14 @@ const Container = styled.section`
             border-bottom: 0.2rem solid transparent;
             border-left: 0.2rem solid var(--main-color);
             border-right: 0.2rem solid var(--main-color);
-            animation: myrotate 1s linear infinite;
+            animation: imageSpinner 6s linear infinite;
 
-            @keyframes myrotate {
-                from {
-                    transform: translate(-50%, -50%) rotate(0);
+            @keyframes imageSpinner {
+                0% {
+                    transform: translate(-50%, -50%) rotate(0deg);
                 }
-                to {
-                    transform: translate(-50%, -50%) rotate(180);
+                100% {
+                    transform: translate(-50%, -50%) rotate(180deg);
                 }
             }
         }

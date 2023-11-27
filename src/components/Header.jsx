@@ -28,13 +28,13 @@ function Header() {
     }
     return (
         <Container className={`${scrolled && 'scrolled'}`} id="header">
-            <a className="logo">QuanPhat.</a>
+            <a className="logo">QuanPhat. <span className='logo-animate'></span></a>
             <span
                 className="menu-icon"
                 onClick={() => {
                     setIsShowNavBar(!isShowNavBar);
                 }}
-            >
+            ><span className='menu-icon-animate'></span>
                 {isShowNavBar ? <IoCloseOutline /> : <CgMenu />}
             </span>
             <nav className={`navbar ${isShowNavBar && 'active'}`}>
@@ -54,7 +54,9 @@ function Header() {
                     Contact
                 </Link>
                 <span className="active-nav"></span>
+                <span className='navbar-animate'></span>
             </nav>
+            
         </Container>
     );
 }
@@ -69,15 +71,42 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     z-index: 2;
+
     &.scrolled {
         background-color: var(--bg-color);
     }
+
+    
     .logo {
+        position: relative;
         font-size: 2.1rem;
         color: var(--text-color);
         font-weight: 500;
+        
     }
-
+    .logo-animate, .navbar-animate, .menu-icon-animate{
+            position: absolute;
+            top:0;
+            right:0;
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            z-index: 98;
+            animation: showRight 1s ease forwards;
+            animation-delay: calc(.3s);
+            @keyframes showRight {
+                100%{
+                    width: 0;
+                    
+                }
+            }
+        }
+    .navbar-animate{
+        animation-delay: calc(.6s);
+    }
+    .navbar{
+        position: relative;
+    }
     .navbar a {
         text-decoration: none;
         font-size: 1.7rem;
@@ -92,6 +121,7 @@ const Container = styled.div`
         }
     }
     .menu-icon {
+        position: relative;
         font-size: 3rem;
         color: var(--text-color);
         cursor: pointer;

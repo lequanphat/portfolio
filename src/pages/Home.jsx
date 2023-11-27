@@ -19,8 +19,8 @@ function Home() {
                     specimen book.
                 </p>
                 <div className="btn-box">
-                    <Button>Hire Me</Button>
-                    <Button outline>Let&apos;s Talk</Button>
+                    <Button to={"/"}>Hire Me</Button>
+                    <Button to={"/"} outline>Let&apos;s Talk</Button>
                 </div>
                 <div className="home-sci">
                     <a href="#">
@@ -71,6 +71,24 @@ const Container = styled.section`
             font-weight: 700;
             color: transparent;
             -webkit-text-stroke: 0.7px var(--main-color);
+            background-image: linear-gradient(var(--main-color), var(--main-color));
+            background-repeat: no-repeat;
+            -webkit-background-clip: text;
+            background-position: -33rem 0;
+            animation: homeText 6s linear infinite;
+            animation-delay: 2s;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0;
+                height: 100%;
+                border: 1px solid var(--main-color);
+                z-index: 1;
+                animation: homeCursorText 6s linear infinite;
+                animation-delay: 2s;
+            }
         }
     }
     .btn-box {
@@ -138,9 +156,9 @@ const Container = styled.section`
             display: flex;
             flex-direction: column;
         }
-        .home-sci{
+        .home-sci {
             width: 160px;
-            a{
+            a {
                 width: 38px;
                 height: 38px;
             }
@@ -150,7 +168,6 @@ const Container = styled.section`
         .home-content h1 {
             font-size: 5.2rem;
         }
-        
     }
     @media (max-width: 371px) {
         justify-content: center;
@@ -159,10 +176,37 @@ const Container = styled.section`
             align-items: center;
             text-align: center;
             flex-direction: column;
-            h1{
+            h1 {
                 font-size: 5rem;
-                
             }
+        }
+    }
+    @keyframes homeText {
+        0%,
+        10%,
+        100% {
+            background-position: -33rem 0;
+        }
+        65%,
+        85% {
+            background-position: 0 0;
+        }
+    }
+    @keyframes homeCursorText {
+        0%,
+        10%,
+        100% {
+            left: 0;
+        }
+        65%,
+        78%,
+        85% {
+            left: 100%;
+            opacity: 1;
+        }
+        75%,
+        81% {
+            opacity: 0;
         }
     }
 `;

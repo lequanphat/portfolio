@@ -1,14 +1,14 @@
+import { Link } from 'react-scroll';
 import styled from 'styled-components';
-
 // eslint-disable-next-line react/prop-types
-function Button({ children, height, outline }) {
+function Button({ children, height, outline, to }) {
     return (
-        <Container theme={{ height: height }} className={`${outline && 'outline'}`}>
-            {children}
+        <Container theme={{ height: height }} className={`${outline && 'outline'}`} >
+            <Link to={to} smooth={true}>{children}</Link>
         </Container>
     );
 }
-const Container = styled.a`
+const Container = styled.div`
     position: relative;
     display: inline-flex;
     justify-content: center;
