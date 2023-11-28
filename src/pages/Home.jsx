@@ -1,11 +1,13 @@
+/* eslint-disable react/display-name */
 /* eslint-disable react/prop-types */
+import { forwardRef } from 'react';
 import styled from 'styled-components';
 import { FaFacebookF, FaGithub } from 'react-icons/fa';
 import { BiLogoInstagramAlt } from 'react-icons/bi';
 import Button from '../components/Button';
-function Home() {
+const Home = forwardRef((props, ref) => {
     return (
-        <Container id="home">
+        <Container id="home" ref={ref}>
             <div className="home-content">
                 <h1>
                     Hi, I&apos;m <span>Quan Phat</span>
@@ -19,8 +21,8 @@ function Home() {
                     specimen book.
                 </p>
                 <div className="btn-box">
-                    <Button to={'/'}>Hire Me</Button>
-                    <Button to={'/'} outline>
+                    <Button to={'about'}>Read More</Button>
+                    <Button to={'contact'} outline>
                         Let&apos;s Talk
                     </Button>
                 </div>
@@ -36,23 +38,10 @@ function Home() {
                     </a>
                 </div>
             </div>
-            <div className="home-object">
-                {/* <div className="home-img">
-                    <img src="/z4920805935531_92b68f75fff6e12696288288e05d7667.jpg" alt="avt" />
-                </div> */}
-                <div className="box">
-                    <div className="box-top"></div>
-                    <div>
-                        <span className="face-0"></span>
-                        <span className="face-1"></span>
-                        <span className="face-2"></span>
-                        <span className="face-3"></span>
-                    </div>
-                </div>
-            </div>
+            <div className="home-object"></div>
         </Container>
     );
-}
+});
 const Container = styled.section`
     min-height: 100vh;
     padding: 10rem 9% 2rem;
@@ -60,6 +49,7 @@ const Container = styled.section`
     align-items: center;
     justify-content: space-between;
     padding: 0 9%;
+
     .home-content {
         max-width: 60rem;
         h1 {
@@ -75,117 +65,18 @@ const Container = styled.section`
             margin: 2rem 0 4rem;
         }
     }
-    .box {
-        position: relative;
-        width: 26rem;
-        height: 26rem;
-        transform-style: preserve-3d;
-        transform: rotateX(-26deg);
-        animation: rotate 10s linear infinite;
-        animation-delay: 1s;
-        margin-right: 5rem;
-        @keyframes rotate {
-            0% {
-                transform: rotateX(-25deg) rotateY(0deg);
-            }
-            100% {
-                transform: rotateX(-25deg) rotateY(360deg);
-            }
-        }
-        .box-top {
-            position: absolute;
-            top: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #2980b9;
-            /* box-shadow:  0 0 200px 7px var(--main-color), 0 0 200px 20px var(--main-color),
-                0 0 200px var(--main-color); */
-            transform: rotateX(90deg) translateZ(145px);
-            &::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                box-shadow: 0 0 120px var(--main-color), 0 0 200px var(--main-color),
-                    0 0 200px var(--main-color), 0 0 200px var(--main-color);
-                filter: blur(20px);
-                transform: translateZ(-350px);
-            }
-            /* box-shadow: 0 0 200px 7px greenyellow, 0 0 200px 20px lightgreen,
-                0 0 200px green;
-            transform: rotateX(90deg) translateZ(145px);
-            &::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                box-shadow: 0 0 120px rgba(0, 255, 0, 0.2), 0 0 200px rgba(0, 255, 0, 0.4),
-                    0 0 200px rgba(0, 255, 0, 0.4), 0 0 200px rgba(0, 255, 0, 0.4);
-                filter: blur(20px);
-                transform: translateZ(-350px);
-            } */
-        }
-        div {
-            position: absolute;
-            top: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-            span {
-                position: absolute;
-                top: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(#222, var(--main-color));
-                opacity: 0.8;
-                transform: rotateY(calc(0deg)) translateZ(145px);
-                &.face-1 {
-                    transform: rotateY(calc(90deg)) translateZ(145px);
-                }
-                &.face-2 {
-                    transform: rotateY(calc(180deg)) translateZ(145px);
-                }
-                &.face-3 {
-                    transform: rotateY(calc(270deg)) translateZ(145px);
-                }
-                border: 5px solid var(--main-color);
-            }
-        }
-    }
-    .home-img {
-        position: relative;
-        width: 40rem;
-        height: 40rem;
-        border-radius: 50%;
+
+    .home-object {
+        width: 38rem;
+        height: 38rem;
         overflow: hidden;
-        padding: 1rem;
-        border: 0.6rem solid var(--main-color);
-        animation: floatImage 4s ease-in-out infinite;
-        animation-delay: 2s;
-        img {
-            border-radius: 50%;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        @keyframes floatImage {
-            0% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-22px);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
+        border-radius: 50%;
+        background-image: url('bgme.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        box-shadow: 0 0 60px var(--main-color), 0 0 140px var(--main-color),
+                    0 0 140px var(--main-color), 0 0 140px var(--main-color);
     }
     .text-animate {
         position: relative;
@@ -260,6 +151,11 @@ const Container = styled.section`
             &:hover {
                 color: var(--bg-color);
             }
+        }
+    }
+    @media (max-width: 991px) {
+        .home-object {
+            display: none;
         }
     }
 

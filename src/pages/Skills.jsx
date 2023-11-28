@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-
-function Skills() {
+/* eslint-disable react/display-name */
+import { forwardRef } from 'react';
+const Skills = forwardRef((props, ref) =>  {
     return (
-        <Container id="skills">
+        <Container id="skills" ref={ref}>
             <h2 className="heading">
                 My <span>Skills</span>
             </h2>
@@ -88,7 +89,7 @@ function Skills() {
             </div>
         </Container>
     );
-}
+});
 const Container = styled.div`
     min-height: 100vh!important;
     padding: 4rem 9%;

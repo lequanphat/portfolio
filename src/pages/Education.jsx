@@ -1,18 +1,20 @@
+import { forwardRef } from 'react';
 import styled from 'styled-components';
 import ExperienceColumn from '../components/experiences/ExperiencesColumn';
-function Education() {
+// eslint-disable-next-line react/prop-types, react/display-name
+const Education = forwardRef((props, ref) => {
     return (
-        <Container id="education">
+        <Container id="education" ref={ref}>
             <h2 className="heading">
                 My <span>Journey</span>
             </h2>
             <div className="education-row">
-                <ExperienceColumn title={"Education"}/>
-                <ExperienceColumn title={"Experience"} right="right"/>
+                <ExperienceColumn title={'Education'} />
+                <ExperienceColumn title={'Experience'} right="right" />
             </div>
         </Container>
     );
-}
+});
 const Container = styled.section`
     padding: 4rem 9% 4rem;
     display: flex;
@@ -34,11 +36,9 @@ const Container = styled.section`
         gap: 2rem;
     }
     @media (max-width: 462px) {
-        
         .education {
             padding: 10rem 4% 5rem 5%;
         }
-        
     }
 `;
 export default Education;

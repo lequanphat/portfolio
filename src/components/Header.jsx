@@ -1,19 +1,36 @@
+/* eslint-disable react/prop-types */
 import styled from 'styled-components';
 import { CgMenu } from 'react-icons/cg';
 import { IoCloseOutline } from 'react-icons/io5';
 import { Link } from 'react-scroll';
 import { useEffect, useState } from 'react';
 
-// eslint-disable-next-line react/prop-types
-function Header() {
+
+function Header({educationRef, aboutRef, contactRef, skillsRef}) {
     const [scrolled, setScrolled] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
     const [isShowNavBar, setIsShowNavBar] = useState(false);
     useEffect(() => {
-        const height = window.innerHeight;
+
         const handleScroll = () => {
+            const height = window.scrollY ;
+            console.log(height);
             const isScrolled = window.scrollY > 0;
-            setActiveIndex(parseInt(window.scrollY / height + 0.5));
+            if(height > contactRef.current.offsetTop){
+                setActiveIndex(4)
+            }
+            else if(height > skillsRef.current.offsetTop){
+                setActiveIndex(3)
+            }
+            else if(height> educationRef.current.offsetTop){
+                setActiveIndex(2)
+            }
+            else if(height > aboutRef.current.offsetTop){
+                setActiveIndex(1)
+            }else{
+                setActiveIndex(0)
+            }
+           
             setScrolled(isScrolled);
         };
 
@@ -25,38 +42,65 @@ function Header() {
 
     const handleClickNavBar = () => {
         setIsShowNavBar(false);
-    }
+    };
     return (
         <Container className={`${scrolled && 'scrolled'}`} id="header">
-            <a className="logo">QuanPhat. <span className='logo-animate'></span></a>
+            <a className="logo">
+                QuanPhat. <span className="logo-animate"></span>
+            </a>
             <span
                 className="menu-icon"
                 onClick={() => {
                     setIsShowNavBar(!isShowNavBar);
                 }}
-            ><span className='menu-icon-animate'></span>
+            >
+                <span className="menu-icon-animate"></span>
                 {isShowNavBar ? <IoCloseOutline /> : <CgMenu />}
             </span>
             <nav className={`navbar ${isShowNavBar && 'active'}`}>
-                <Link to="home" smooth={true} className={`${activeIndex === 0 && 'active'}`} onClick={handleClickNavBar}>
+                <Link
+                    to="home"
+                    smooth={true}
+                    className={`${activeIndex === 0 && 'active'}`}
+                    onClick={handleClickNavBar}
+                >
                     Home
                 </Link>
-                <Link to="about" smooth={true} className={`${activeIndex === 1 && 'active'}`} onClick={handleClickNavBar}>
+                <Link
+                    to="about"
+                    smooth={true}
+                    className={`${activeIndex === 1 && 'active'}`}
+                    onClick={handleClickNavBar}
+                >
                     About
                 </Link>
-                <Link to="education" smooth={true} className={`${activeIndex === 2 && 'active'}`} onClick={handleClickNavBar}>
+                <Link
+                    to="education"
+                    smooth={true}
+                    className={`${activeIndex === 2 && 'active'}`}
+                    onClick={handleClickNavBar}
+                >
                     Education
                 </Link>
-                <Link to="skills" smooth={true} className={`${activeIndex === 3 && 'active'}`} onClick={handleClickNavBar}>
+                <Link
+                    to="skills"
+                    smooth={true}
+                    className={`${activeIndex === 3 && 'active'}`}
+                    onClick={handleClickNavBar}
+                >
                     Skills
                 </Link>
-                <Link to="contact" smooth={true} className={`${activeIndex === 4 && 'active'}`} onClick={handleClickNavBar}>
+                <Link
+                    to="contact"
+                    smooth={true}
+                    className={`${activeIndex === 4 && 'active'}`}
+                    onClick={handleClickNavBar}
+                >
                     Contact
                 </Link>
                 <span className="active-nav"></span>
-                <span className='navbar-animate'></span>
+                <span className="navbar-animate"></span>
             </nav>
-            
         </Container>
     );
 }
@@ -76,35 +120,34 @@ const Container = styled.div`
         background-color: var(--bg-color);
     }
 
-    
     .logo {
         position: relative;
         font-size: 2.2rem;
         font-weight: 600;
         color: var(--main-color);
-        
     }
-    .logo-animate, .navbar-animate, .menu-icon-animate{
-            position: absolute;
-            top:0;
-            right:0;
-            width: 100%;
-            height: 100%;
-            background-color: red;
-            z-index: 98;
-            animation: showRight 1s ease forwards;
-            animation-delay: calc(.3s);
-            @keyframes showRight {
-                100%{
-                    width: 0;
-                    
-                }
+    .logo-animate,
+    .navbar-animate,
+    .menu-icon-animate {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: red;
+        z-index: 98;
+        animation: showRight 1s ease forwards;
+        animation-delay: calc(0.3s);
+        @keyframes showRight {
+            100% {
+                width: 0;
             }
         }
-    .navbar-animate{
-        animation-delay: calc(.6s);
     }
-    .navbar{
+    .navbar-animate {
+        animation-delay: calc(0.6s);
+    }
+    .navbar {
         position: relative;
     }
     .navbar a {
@@ -143,7 +186,7 @@ const Container = styled.div`
             background-color: var(--main-color);
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
             transition: 0.25s ease;
-            transition-delay: .25s;
+            transition-delay: 0.25s;
             z-index: 1;
             a {
                 display: block;
@@ -155,32 +198,32 @@ const Container = styled.div`
             transition-delay: 0s;
             left: 0;
         }
-        .navbar .active-nav{
+        .navbar .active-nav {
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
             background-color: var(--bg-color);
-            border-top: .1rem solid rgba(0,0,0,.2);
+            border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
             z-index: -1;
-            transition: .25s ease;
+            transition: 0.25s ease;
             transition-delay: 0s;
         }
-        .navbar.active .active-nav{
-            transition-delay: .25s;
-            left:0
+        .navbar.active .active-nav {
+            transition-delay: 0.25s;
+            left: 0;
         }
-        .navbar a{
+        .navbar a {
             display: block;
             font-size: 2rem;
             margin: 3rem 0;
             transform: translateX(-20rem);
             transition-delay: 0s;
         }
-        .navbar.active a{
+        .navbar.active a {
             transform: translateX(0);
-            transition-delay: .25s;
+            transition-delay: 0.25s;
         }
     }
 `;

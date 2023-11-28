@@ -1,9 +1,11 @@
+/* eslint-disable react/display-name */
+import { forwardRef } from 'react';
 import styled from 'styled-components';
 import Button from '../components/Button';
 
-function About() {
+const About = forwardRef((props, ref) =>  {
     return (
-        <Container id="about">
+        <Container id="about" ref={ref}>
             <h2 className="heading">
                 About<span> Me</span>
             </h2>
@@ -24,7 +26,7 @@ function About() {
             </div>
         </Container>
     );
-}
+});
 const Container = styled.section`
     height: 100vh;
     display: flex;
@@ -43,8 +45,8 @@ const Container = styled.section`
     }
     .about-img {
         position: relative;
-        width: 25rem;
-        height: 25rem;
+        width: 26rem;
+        height: 26rem;
         border-radius: 50%;
         display: flex;
         justify-content: center;

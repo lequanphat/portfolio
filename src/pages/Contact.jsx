@@ -1,9 +1,10 @@
+/* eslint-disable react/display-name */
 import styled from 'styled-components';
 import Button from '../components/Button';
-
-function Contact() {
+import { forwardRef } from 'react';
+const Contact = forwardRef((props, ref) => {
     return (
-        <Container id="contact">
+        <Container id="contact" ref={ref}>
             <h2 className="heading">
                 Contact <span>Me</span>
             </h2>
@@ -36,7 +37,7 @@ function Contact() {
             </form>
         </Container>
     );
-}
+});
 const Container = styled.section`
     height: 100vh;
     padding: 0 9%;
