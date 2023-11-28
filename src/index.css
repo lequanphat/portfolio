@@ -74,3 +74,9 @@ html::-webkit-scrollbar-thumb {
       font-size: 50%;
     }
 }
+
+@keyframes showRight {
+    100% {
+        width: 0;
+    }
+}

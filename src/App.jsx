@@ -15,7 +15,7 @@ function App() {
     const contactRef = useRef();
     return (
         <>
-            <Header educationRef={educationRef} homeRef={homeRef} aboutRef={aboutRef} skillsRef={skillsRef} contactRef={contactRef} />
+            <Header arrRef={[homeRef, aboutRef, educationRef, skillsRef, contactRef]} />
             <Home ref={homeRef}/>
             <About ref={aboutRef}/>
             <Education  ref={educationRef}/>

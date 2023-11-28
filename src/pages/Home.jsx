@@ -7,24 +7,29 @@ import { BiLogoInstagramAlt } from 'react-icons/bi';
 import Button from '../components/Button';
 const Home = forwardRef((props, ref) => {
     return (
-        <Container id="home" ref={ref}>
+        <Container id="home" ref={ref} className="show-animate">
             <div className="home-content">
                 <h1>
                     Hi, I&apos;m <span>Quan Phat</span>
+                    <span className="animate"></span>
                 </h1>
                 <div className="text-animate">
-                    <h3>Fullstack Developer</h3>
+                    <h3>
+                        Fullstack Developer<span className="animate"></span>
+                    </h3>
                 </div>
                 <p>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                     ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
                     specimen book.
+                    <span className="animate"></span>
                 </p>
                 <div className="btn-box">
                     <Button to={'about'}>Read More</Button>
                     <Button to={'contact'} outline>
                         Let&apos;s Talk
                     </Button>
+                    <span className="animate"></span>
                 </div>
                 <div className="home-sci">
                     <a href="#">
@@ -36,9 +41,10 @@ const Home = forwardRef((props, ref) => {
                     <a href="#">
                         <BiLogoInstagramAlt />
                     </a>
+                    <span className="animate"></span>
                 </div>
             </div>
-            <div className="home-object"></div>
+            <div className="home-object"><span className="animate"></span></div>
         </Container>
     );
 });
@@ -50,23 +56,42 @@ const Container = styled.section`
     justify-content: space-between;
     padding: 0 9%;
 
+    &.show-animate .animate {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--bg-color);
+        z-index: 98;
+        animation: showRight 1s ease forwards;
+    }
     .home-content {
         max-width: 60rem;
         h1 {
+            position: relative;
             font-size: 5.6rem;
             font-weight: 700;
             line-height: 1.3;
+            .animate {
+                animation-delay: 0.3s;
+            }
             span {
                 color: var(--text-color);
             }
         }
         p {
+            position: relative;
             font-size: 1.6rem;
             margin: 2rem 0 4rem;
+            .animate {
+                animation-delay: 0.9s;
+            }
         }
     }
 
     .home-object {
+        position: relative;
         width: 38rem;
         height: 38rem;
         overflow: hidden;
@@ -75,8 +100,11 @@ const Container = styled.section`
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        box-shadow: 0 0 60px var(--main-color), 0 0 140px var(--main-color),
-                    0 0 140px var(--main-color), 0 0 140px var(--main-color);
+        box-shadow: 0 0 60px var(--main-color), 0 0 140px var(--main-color), 0 0 140px var(--main-color),
+            0 0 140px var(--main-color);
+            .animate {
+                animation-delay: 1.8s;
+            }
     }
     .text-animate {
         position: relative;
@@ -104,6 +132,9 @@ const Container = styled.section`
                 animation: homeCursorText 6s linear infinite;
                 animation-delay: 2s;
             }
+            .animate {
+                animation-delay: 0.6s;
+            }
         }
     }
     .btn-box {
@@ -112,6 +143,9 @@ const Container = styled.section`
         justify-content: space-between;
         width: 34.5rem;
         height: 5rem;
+        .animate {
+            animation-delay: 1.2s;
+        }
     }
     .home-sci {
         position: absolute;
@@ -119,6 +153,9 @@ const Container = styled.section`
         width: 17rem;
         display: flex;
         justify-content: space-between;
+        .animate {
+            animation-delay: 1.5s;
+        }
         a {
             position: relative;
             display: inline-flex;

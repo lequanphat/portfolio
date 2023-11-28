@@ -1,3 +1,4 @@
+/* eslint-disable for-direction */
 /* eslint-disable react/prop-types */
 import styled from 'styled-components';
 import { CgMenu } from 'react-icons/cg';
@@ -5,32 +6,28 @@ import { IoCloseOutline } from 'react-icons/io5';
 import { Link } from 'react-scroll';
 import { useEffect, useState } from 'react';
 
-
-function Header({educationRef, aboutRef, contactRef, skillsRef}) {
+function Header({ arrRef }) {
     const [scrolled, setScrolled] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
     const [isShowNavBar, setIsShowNavBar] = useState(false);
+    
     useEffect(() => {
-
         const handleScroll = () => {
-            const height = window.scrollY ;
-            console.log(height);
+            const height = window.scrollY + 300;
             const isScrolled = window.scrollY > 0;
-            if(height > contactRef.current.offsetTop){
-                setActiveIndex(4)
+            for (let i = 4; i >= 0; i--) {
+                if (height > arrRef[i].current.offsetTop ) {
+                    console.log('remove: ' + activeIndex);
+                    console.log('add: ' + i);
+                    arrRef[i].current.classList.add('show-animate');
+                    setActiveIndex(i);
+                    for (let j = 4; j >= 0; j--) {
+                        if(j !== i)
+                        arrRef[j].current.classList.remove('show-animate');
+                    }
+                    break;
+                }
             }
-            else if(height > skillsRef.current.offsetTop){
-                setActiveIndex(3)
-            }
-            else if(height> educationRef.current.offsetTop){
-                setActiveIndex(2)
-            }
-            else if(height > aboutRef.current.offsetTop){
-                setActiveIndex(1)
-            }else{
-                setActiveIndex(0)
-            }
-           
             setScrolled(isScrolled);
         };
 
@@ -114,7 +111,7 @@ const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 2;
+    z-index: 99;
 
     &.scrolled {
         background-color: var(--bg-color);
@@ -134,15 +131,10 @@ const Container = styled.div`
         right: 0;
         width: 100%;
         height: 100%;
-        background-color: red;
+        background-color: var(--bg-color);
         z-index: 98;
         animation: showRight 1s ease forwards;
         animation-delay: calc(0.3s);
-        @keyframes showRight {
-            100% {
-                width: 0;
-            }
-        }
     }
     .navbar-animate {
         animation-delay: calc(0.6s);
