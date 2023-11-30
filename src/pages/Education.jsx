@@ -1,8 +1,51 @@
-import { forwardRef } from 'react';
+/* eslint-disable react/display-name */
+import { forwardRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ExperienceColumn from '../components/experiences/ExperiencesColumn';
-// eslint-disable-next-line react/prop-types, react/display-name
+
 const Education = forwardRef((props, ref) => {
+    const [educationData, setEducationData] = useState([])
+    const [experiencesData, setExperiencesData] = useState([])
+    useEffect(()=> {
+        const data = [
+            {
+                period: '2021 - 2025',
+                title: 'Student in SaiGon University',
+                content: `I'm a student at SaiGon University, pursuing a degree in Information Technology. Driven
+                by a passion for coding.`,
+            },
+            {
+                period: '2025 - 2099',
+                title: 'Comming Soon',
+                content: `Comming Soon`,
+            },
+            {
+                period: '2025 - 2099',
+                title: 'Comming Soon',
+                content: `Comming Soon`,
+            },
+        ];
+        const ex_data = [
+            {
+                period: '2023 - 2023',
+                title: 'Built a Realtime Chat-app',
+                content: `Build a real-time chat app project using React, Nodejs, Expresjs, MongoDB, Socketio and integrate ChatGPT API`,
+            },
+            {
+                period: '2025 - 2099',
+                title: 'Comming Soon',
+                content: `Comming Soon`,
+            },
+            {
+                period: '2025 - 2099',
+                title: 'Comming Soon',
+                content: `Comming Soon`,
+            },
+        ];
+        setEducationData(data)
+        setExperiencesData(ex_data);
+    }, [])
+    
     return (
         <Container id="education" ref={ref}>
             <h2 className="heading">
@@ -10,8 +53,8 @@ const Education = forwardRef((props, ref) => {
                 <span className="animate"></span>
             </h2>
             <div className="education-row">
-                <ExperienceColumn title={'Education'} />
-                <ExperienceColumn title={'Experience'} right={"right"}/>
+                <ExperienceColumn title={'Education'} data={educationData} />
+                <ExperienceColumn title={'Experiences'} data={experiencesData} right={'right'} />
                 <span className="animate"></span>
             </div>
         </Container>
@@ -23,7 +66,7 @@ const Container = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: auto;
+    min-height: 100vh;
     .animate {
         position: absolute;
         top: 0;
@@ -41,7 +84,7 @@ const Container = styled.section`
         font-size: 3.8rem;
         margin-bottom: 3rem;
         text-align: center;
-        .animate{
+        .animate {
             animation-delay: 0.3s;
         }
     }
@@ -53,7 +96,7 @@ const Container = styled.section`
         display: flex;
         flex-wrap: wrap;
         gap: 2rem;
-        .animate{
+        .animate {
             width: 120%;
             right: -10%;
             animation-delay: 0.9s;

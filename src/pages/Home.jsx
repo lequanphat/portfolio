@@ -19,9 +19,9 @@ const Home = forwardRef((props, ref) => {
                     </h3>
                 </div>
                 <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-                    specimen book.
+                    I&apos;m a student at SaiGon University, pursuing a degree in Information Technology. Driven
+                    by a passion for coding, I want to become a fullstack developer. My goal is to excel in this field,
+                    contribute to technological advancements, and build innovative applications.
                     <span className="animate"></span>
                 </p>
                 <div className="btn-box">
@@ -32,19 +32,24 @@ const Home = forwardRef((props, ref) => {
                     <span className="animate"></span>
                 </div>
                 <div className="home-sci">
-                    <a href="#">
+                    <a href="https://www.facebook.com/profile.php?id=100036084976728">
                         <FaFacebookF />
                     </a>
-                    <a href="#">
+                    <a href="https://github.com/lequanphat">
                         <FaGithub />
                     </a>
-                    <a href="#">
+                    <a href="https://www.instagram.com/phatle8851/">
                         <BiLogoInstagramAlt />
                     </a>
                     <span className="animate"></span>
                 </div>
             </div>
-            <div className="home-object"><span className="animate"></span></div>
+            <div className="home-object">
+                <div className="home-img">
+                    <p className="tag">Hi. I&apos;m Quan Phat</p>
+                </div>
+                <span className="animate"></span>
+            </div>
         </Container>
     );
 });
@@ -86,25 +91,47 @@ const Container = styled.section`
             margin: 2rem 0 4rem;
             .animate {
                 animation-delay: 0.9s;
+                animation-duration: 2s;
             }
         }
     }
 
     .home-object {
         position: relative;
-        width: 38rem;
-        height: 38rem;
         overflow: hidden;
-        border-radius: 50%;
-        background-image: url('bgme.png');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        box-shadow: 0 0 60px var(--main-color), 0 0 140px var(--main-color), 0 0 140px var(--main-color),
-            0 0 140px var(--main-color);
-            .animate {
-                animation-delay: 1.8s;
+        padding: 80px;
+
+        .home-img {
+            position: relative;
+            width: 34rem;
+            height: 34rem;
+            border-radius: 50%;
+            background-image: url('bgme.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            box-shadow: 0 0 20px var(--main-color), 0 0 60px var(--main-color), 0 0 60px var(--main-color),
+                0 0 60px var(--main-color);
+            cursor: pointer;
+            .tag {
+                position: absolute;
+                top: 65%;
+                left: 50%;
+                background-color: var(--main-color);
+                border-radius: 4px;
+                padding: 0.4rem 0.8rem;
+                font-size: 1.5rem;
+                transform: translateX(-50%);
+                transition: 1s;
+                opacity: 0;
             }
+            &:hover .tag {
+                opacity: 1;
+            }
+        }
+        .animate {
+            animation-delay: 1.8s;
+        }
     }
     .text-animate {
         position: relative;

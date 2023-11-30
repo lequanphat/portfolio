@@ -14,7 +14,6 @@ function ThreeDBox() {
     );
 }
 const Container = styled.div`
-    position: relative;
     width: 12rem;
     height: 12rem;
     transform-style: preserve-3d;
@@ -24,10 +23,10 @@ const Container = styled.div`
     margin-right: 5rem;
     @keyframes rotate {
         0% {
-            transform: rotateX(-25deg) rotateY(0deg);
+            transform: rotateX(-25deg) rotateY(0deg) ;
         }
         100% {
-            transform: rotateX(-25deg) rotateY(360deg);
+            transform: rotateX(-25deg) rotateY(360deg) ;
         }
     }
     .box-top {
@@ -50,7 +49,7 @@ const Container = styled.div`
             box-shadow: 0 0 120px var(--main-color), 0 0 200px var(--main-color), 0 0 200px var(--main-color),
                 0 0 200px var(--main-color);
             filter: blur(20px);
-            transform: translateZ(-160px);
+            transform: translateZ(-220px);
         }
     }
     div {

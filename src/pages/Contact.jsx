@@ -45,7 +45,7 @@ const Container = styled.section`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: var(--bg-color);
+    background-color: var(--second-bg-color);
     .heading {
         font-size: 3.8rem;
         margin-bottom: 3rem;
@@ -56,7 +56,7 @@ const Container = styled.section`
     }
 
     form {
-        width: 50%;
+        width: 70%;
         margin: 0 auto;
     }
     .input-box {

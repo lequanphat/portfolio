@@ -1,169 +1,131 @@
-import styled from 'styled-components';
 /* eslint-disable react/display-name */
+import styled from 'styled-components';
 import { forwardRef } from 'react';
-const Skills = forwardRef((props, ref) =>  {
+import SkillItem from '../components/skills/SkillItem';
+import ThreeDBox from '../components/3dbox/ThreeDBox';
+const Skills = forwardRef((props, ref) => {
     return (
-        <Container id="skills" ref={ref}>
+        <Container ref={ref} id="skills">
             <h2 className="heading">
-                My <span>Skills</span>
+                My<span> Skills</span>
+                <span className="animate"></span>
             </h2>
-            <div className="skills-row">
-                <div className="skills-column">
-                    <h3 className="title">Coding Skills</h3>
-                    <div className="skills-box">
-                        <div className="skill-content">
-                            <div className="progress">
-                                <h3>
-                                    HTML <span>90%</span>
-                                </h3>
-                                <div className="bar">
-                                    <span></span>
-                                </div>
-                            </div>
-                            <div className="progress">
-                                <h3>
-                                    CSS <span>30%</span>
-                                </h3>
-                                <div className="bar">
-                                    <span></span>
-                                </div>
-                            </div>
-                            <div className="progress">
-                                <h3>
-                                    JavaScript <span>90%</span>
-                                </h3>
-                                <div className="bar">
-                                    <span></span>
-                                </div>
-                            </div>
-                            <div className="progress">
-                                <h3>
-                                    HTML <span>90%</span>
-                                </h3>
-                                <div className="bar">
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div className="skills-wrapper">
+                <div className="skills-left">
+                    <h2>Frontend Skills</h2>
+                    <SkillItem
+                        image={'htmlcss.png'}
+                        title={'HTML & CSS'}
+                        content={'To build a framework for a website.'}
+                    />
+                    <SkillItem image={'tailwind.png'} title={'Tailwind'} content={'Used for faster CSS styling.'} />
+                    <SkillItem
+                        image={'jsts.png'}
+                        title={'JavaScript & TypeScript'}
+                        content={'To create flexibility for a website.'}
+                    />
+                    <SkillItem image={'redux.png'} title={'Redux Toolkit'} content={'Use Redux to manage state.'} />
+                    <SkillItem
+                        image={'react.png'}
+                        title={'React'}
+                        content={'The library for web and native user interfaces'}
+                    />
                 </div>
-                <div className="skills-column">
-                    <h3 className="title">Coding Skills</h3>
-                    <div className="skills-box">
-                        <div className="skill-content">
-                            <div className="progress">
-                                <h3>
-                                    HTML <span>90%</span>
-                                </h3>
-                                <div className="bar">
-                                    <span></span>
-                                </div>
-                            </div>
-                            <div className="progress">
-                                <h3>
-                                    CSS <span>30%</span>
-                                </h3>
-                                <div className="bar">
-                                    <span></span>
-                                </div>
-                            </div>
-                            <div className="progress">
-                                <h3>
-                                    JavaScript <span>90%</span>
-                                </h3>
-                                <div className="bar">
-                                    <span></span>
-                                </div>
-                            </div>
-                            <div className="progress">
-                                <h3>
-                                    HTML <span>90%</span>
-                                </h3>
-                                <div className="bar">
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div className="box"><ThreeDBox /></div>
+                <div className="skills-right">
+                    <h2>Backend Skills</h2>
+                    <SkillItem
+                        image={'docker.png'}
+                        title={'Docker Engine'}
+                        content={'To build, share, and run app anywhere.'}
+                    />
+                    <SkillItem
+                        image={'firebase.png'}
+                        title={'Firebase'}
+                        content={'An realtime database for webs and apps.'}
+                    />
+                    <SkillItem
+                        image={'postman.png'}
+                        title={'Postman API'}
+                        content={'an API platform for building and using APIs'}
+                    />
+                    <SkillItem
+                        image={'mongo.png'}
+                        title={'MongoDB'}
+                        content={`Working with data doesn't have to be difficult`}
+                    />
+                    <SkillItem
+                        image={'node.png'}
+                        title={'NodeJS & ExpressJS'}
+                        content={'Cross-platform JavaScript runtime evr.'}
+                    />
                 </div>
             </div>
         </Container>
     );
 });
-const Container = styled.div`
-    min-height: 100vh!important;
-    padding: 4rem 9%;
+const Container = styled.section`
+    min-height: 100vh;
+    padding: 5rem 9% 1rem;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
-    min-height: auto;
+    gap: 2rem;
     background-color: var(--second-bg-color);
+    .animate {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--second-bg-color);
+        z-index: 98;
+    }
+    &.show-animate .animate {
+        animation: showRight 1s ease forwards;
+    }
     .heading {
+        position: relative;
         font-size: 3.8rem;
         margin-bottom: 3rem;
         text-align: center;
+        .animate {
+            animation-delay: 0.3s;
+        }
     }
     span {
         color: var(--main-color);
     }
-    .skills-row {
+
+    .skills-wrapper {
         width: 100%;
         display: flex;
+        align-items: center;
+        justify-content: space-between;
         flex-wrap: wrap;
-        gap: 5rem;
+        gap: 2rem;
     }
-    .skills-column {
-        width: 40%;
-        flex: 1 1 30rem;
-        .title {
-            font-size: 2.5rem;
-            margin: 0 0 1.5rem;
+    .skills-left,
+    .skills-right {
+        flex: 2 1 30rem;
+        h2{
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
         }
     }
-    .skills-box {
-        /* position: relative;
-        border: 0.2rem solid var(--main-color);
-        border-radius: 0.6rem;
-        padding: 0.5rem 1.5rem; */
-        .progress {
-            position: relative;
-            padding: 1rem 0;
-
-            h3 {
-                font-size: 1.7rem;
-                display: flex;
-                justify-content: space-between;
-                span {
-                    color: var(--text-color);
-                }
-            }
-            .bar {
-                height: 2.5rem;
-                border-radius: 0.6rem;
-                border: 0.2rem solid var(--main-color);
-                padding: 0.3rem;
-                margin: 1rem 0;
-            }
-            .bar span {
-                display: block;
-                width: 50%;
-                height: 100%;
-                border-radius: 0.3rem;
-                background-color: var(--main-color);
-                transition: 0.5s;
-                &:hover {
-                    width: 100%;
-                }
-            }
-        }
+    .box {
+        flex: 1 1 15rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 6rem;
+ 
     }
-    .skill-content {
-        position: relative;
-        border: 0.2rem solid var(--main-color);
-        border-radius: 0.6rem;
-        padding: 0.5rem 1.5rem;
-        overflow: hidden;
+    @media (max-width: 991px) {
+        .box {
+            display: none;
+        }
     }
 `;
 export default Skills;

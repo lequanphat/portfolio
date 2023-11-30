@@ -15,16 +15,14 @@ function Header({ arrRef }) {
         const handleScroll = () => {
             const height = window.scrollY + 300;
             const isScrolled = window.scrollY > 0;
-            for (let i = 4; i >= 0; i--) {
+            for (let i = 5; i >= 0; i--) {
                 if (height > arrRef[i].current.offsetTop ) {
-                    console.log('remove: ' + activeIndex);
-                    console.log('add: ' + i);
                     arrRef[i].current.classList.add('show-animate');
                     setActiveIndex(i);
-                    for (let j = 4; j >= 0; j--) {
-                        if(j !== i)
-                        arrRef[j].current.classList.remove('show-animate');
-                    }
+                    // for (let j = 4; j >= 0; j--) {
+                    //     if(j !== i)
+                    //     arrRef[j].current.classList.remove('show-animate');
+                    // }
                     break;
                 }
             }
@@ -88,9 +86,17 @@ function Header({ arrRef }) {
                     Skills
                 </Link>
                 <Link
-                    to="contact"
+                    to="hobbies"
                     smooth={true}
                     className={`${activeIndex === 4 && 'active'}`}
+                    onClick={handleClickNavBar}
+                >
+                    Hobbies
+                </Link>
+                <Link
+                    to="contact"
+                    smooth={true}
+                    className={`${activeIndex === 5 && 'active'}`}
                     onClick={handleClickNavBar}
                 >
                     Contact

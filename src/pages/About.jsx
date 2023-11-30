@@ -20,9 +20,10 @@ const About = forwardRef((props, ref) => {
                     Fullstack Developer<span className="animate"></span>
                 </h3>
                 <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-                    specimen book. type and scrambled it to make a type specimen book.
+                    I&apos;m a student at SaiGon University, pursuing a degree in Information Technology. Driven by a
+                    passion for coding, I want to become a fullstack developer. I&apos;m constantly seeking
+                    opportunities to enhance my skills and knowledge in programming. My goal is to excel in this field,
+                    contribute to technological advancements, and build innovative applications.
                     <span className="animate"></span>
                 </p>
                 <div className="btn-box btns">
@@ -34,7 +35,7 @@ const About = forwardRef((props, ref) => {
     );
 });
 const Container = styled.section`
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     flex-direction: column;

@@ -21,7 +21,7 @@ const Container = styled.footer`
     align-items: center;
     flex-wrap: wrap;
     padding: 2rem 9%;
-    background-color: var(--second-bg-color);
+    background-color: var(--bg-color);
     .footer-text {
         font-size: 1.6rem;
     }

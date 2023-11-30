@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 // eslint-disable-next-line react/prop-types
-function ExperienceBox({right}) {
+function ExperienceBox({period, title, content,  right}) {
     return (
         <Container theme={{ right: right }}>
             {' '}
@@ -10,12 +10,12 @@ function ExperienceBox({right}) {
                     <span>
                         <FaRegCalendarAlt />
                     </span>
-                    2017 - 2018
+                    {period}
+                    
                 </div>
-                <h3>Master Degree - University</h3>
+                <h3>{title}</h3>
                 <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    ever since the 1500s, when an unknown printer took a galley of
+                {content}
                 </p>
             </div>
         </Container>
