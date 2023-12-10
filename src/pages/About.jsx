@@ -11,7 +11,7 @@ const About = forwardRef((props, ref) => {
                 <span className="animate"></span>
             </h2>
             <div className="about-img">
-                <img src="public/z4920810557724_e11f9798c751bfca2f58025ac73e4141.jpg" alt="me" />
+                <img src="z4920810557724_e11f9798c751bfca2f58025ac73e4141.jpg" alt="me" />
                 <span className="circle-spin"></span>
                 <span className="animate"></span>
             </div>
