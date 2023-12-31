@@ -13,16 +13,12 @@ const Skills = forwardRef((props, ref) => {
             <div className="skills-wrapper">
                 <div className="skills-left">
                     <h2>Frontend Skills</h2>
-                    <SkillItem
-                        image={'htmlcss.png'}
-                        title={'HTML & CSS'}
-                        content={'To build a framework for a website.'}
-                    />
+                    <SkillItem image={'sass.png'} title={'SASS'} content={'Syntactically Awesome Style Sheets.'} />
                     <SkillItem image={'tailwind.png'} title={'Tailwind'} content={'Used for faster CSS styling.'} />
                     <SkillItem
-                        image={'jsts.png'}
-                        title={'JavaScript & TypeScript'}
-                        content={'To create flexibility for a website.'}
+                        image={'mui.png'}
+                        title={'Material UI'}
+                        content={'Move faster with intuitive React UI tools.'}
                     />
                     <SkillItem image={'redux.png'} title={'Redux Toolkit'} content={'Use Redux to manage state.'} />
                     <SkillItem
@@ -31,7 +27,9 @@ const Skills = forwardRef((props, ref) => {
                         content={'The library for web and native user interfaces'}
                     />
                 </div>
-                <div className="box"><ThreeDBox /></div>
+                <div className="box">
+                    <ThreeDBox />
+                </div>
                 <div className="skills-right">
                     <h2>Backend Skills</h2>
                     <SkillItem
@@ -44,21 +42,9 @@ const Skills = forwardRef((props, ref) => {
                         title={'Firebase'}
                         content={'An realtime database for webs and apps.'}
                     />
-                    <SkillItem
-                        image={'postman.png'}
-                        title={'Postman API'}
-                        content={'an API platform for building and using APIs'}
-                    />
-                    <SkillItem
-                        image={'mongo.png'}
-                        title={'MongoDB'}
-                        content={`Working with data doesn't have to be difficult`}
-                    />
-                    <SkillItem
-                        image={'node.png'}
-                        title={'NodeJS & ExpressJS'}
-                        content={'Cross-platform JavaScript runtime evr.'}
-                    />
+                    <SkillItem image={'odm.png'} title={'ORM & ODM'} content={`Object Relational and Data Mapping.`} />
+                    <SkillItem image={'node.png'} title={'NodeJS'} content={'Cross-platform JavaScript runtime evr.'} />
+                    <SkillItem image={'nest.webp'} title={'NestJS'} content={'A progressive Node.js framework'} />
                 </div>
             </div>
         </Container>
@@ -109,7 +95,7 @@ const Container = styled.section`
     .skills-left,
     .skills-right {
         flex: 2 1 30rem;
-        h2{
+        h2 {
             font-size: 2.4rem;
             margin-bottom: 1rem;
         }
@@ -120,7 +106,6 @@ const Container = styled.section`
         align-items: center;
         justify-content: center;
         padding-left: 6rem;
- 
     }
     @media (max-width: 991px) {
         .box {
