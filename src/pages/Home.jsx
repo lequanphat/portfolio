@@ -5,10 +5,7 @@ import styled from 'styled-components';
 import { FaFacebookF, FaGithub } from 'react-icons/fa';
 import { BiLogoInstagramAlt } from 'react-icons/bi';
 import Button from '../components/Button';
-import home_video from '../assets/home.mp4';
-import github from '../assets/github.png';
-import copilot from '../assets/copilot.png';
-import hanhtinh from '../assets/hanhtinh.png';
+
 const Home = forwardRef((props, ref) => {
     return (
         <Container id="home" ref={ref} className="show-animate">
@@ -50,11 +47,11 @@ const Home = forwardRef((props, ref) => {
             </div>
             <div className="home-object">
                 <div className="home-video">
-                    <video src={home_video} autoPlay loop muted className="video-home" />
+                    <video src="home.mp4" autoPlay loop muted className="video-home" />
                 </div>
-                <img className="github" src={github} />
-                <img className="copilot" src={copilot} />
-                <img className="hanhtinh" src={hanhtinh} />
+                <img className="github" src="github.png" />
+                <img className="copilot" src="copilot.png" />
+                <img className="hanhtinh" src="hanhtinh.png" />
 
                 <span className="animate"></span>
             </div>
