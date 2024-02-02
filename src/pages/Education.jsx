@@ -67,6 +67,7 @@ const Container = styled.section`
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background-color: var(--bg-color);
     .animate {
         position: absolute;
         top: 0;
