@@ -10,8 +10,8 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    --bg-color: #081b29;
-    --second-bg-color: #112e42;
+    --bg-color: #040e1e;
+    --second-bg-color: #03142f;
     --text-color: #ededed;
     --main-color: #00abf0;
 }
