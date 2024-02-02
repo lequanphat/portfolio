@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import ExperienceColumn from '../components/experiences/ExperiencesColumn';
 
 const Education = forwardRef((props, ref) => {
-    const [educationData, setEducationData] = useState([])
-    const [experiencesData, setExperiencesData] = useState([])
-    useEffect(()=> {
+    const [educationData, setEducationData] = useState([]);
+    const [experiencesData, setExperiencesData] = useState([]);
+    useEffect(() => {
         const data = [
             {
                 period: '2021 - 2025',
@@ -29,7 +29,7 @@ const Education = forwardRef((props, ref) => {
             {
                 period: '2023 - 2023',
                 title: 'Built a Realtime Chat-app',
-                content: `Build a real-time chat app project using React, Nodejs, Expresjs, MongoDB, Socketio and integrate ChatGPT API`,
+                content: `Build a real-time chat app project using ReactJS, NestJs, MongoDB, Socketio and integrate ChatGPT API`,
             },
             {
                 period: '2025 - 2099',
@@ -42,10 +42,10 @@ const Education = forwardRef((props, ref) => {
                 content: `Comming Soon`,
             },
         ];
-        setEducationData(data)
+        setEducationData(data);
         setExperiencesData(ex_data);
-    }, [])
-    
+    }, []);
+
     return (
         <Container id="education" ref={ref}>
             <h2 className="heading">

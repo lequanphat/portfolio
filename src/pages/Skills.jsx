@@ -32,17 +32,18 @@ const Skills = forwardRef((props, ref) => {
                 </div>
                 <div className="skills-right">
                     <h2>Backend Skills</h2>
-                    <SkillItem
-                        image={'docker.png'}
-                        title={'Docker Engine'}
-                        content={'To build, share, and run app anywhere.'}
-                    />
+
                     <SkillItem
                         image={'firebase.png'}
                         title={'Firebase'}
                         content={'An realtime database for webs and apps.'}
                     />
                     <SkillItem image={'odm.png'} title={'ORM & ODM'} content={`Object Relational and Data Mapping.`} />
+                    <SkillItem
+                        image={'docker.png'}
+                        title={'Docker Engine'}
+                        content={'To build, share, and run app anywhere.'}
+                    />
                     <SkillItem image={'node.png'} title={'NodeJS'} content={'Cross-platform JavaScript runtime evr.'} />
                     <SkillItem image={'nest.webp'} title={'NestJS'} content={'A progressive Node.js framework'} />
                 </div>

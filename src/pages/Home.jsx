@@ -5,6 +5,10 @@ import styled from 'styled-components';
 import { FaFacebookF, FaGithub } from 'react-icons/fa';
 import { BiLogoInstagramAlt } from 'react-icons/bi';
 import Button from '../components/Button';
+import home_video from '../assets/home.mp4';
+import github from '../assets/github.png';
+import copilot from '../assets/copilot.png';
+import hanhtinh from '../assets/hanhtinh.png';
 const Home = forwardRef((props, ref) => {
     return (
         <Container id="home" ref={ref} className="show-animate">
@@ -19,8 +23,8 @@ const Home = forwardRef((props, ref) => {
                     </h3>
                 </div>
                 <p>
-                    I&apos;m a student at SaiGon University, pursuing a degree in Information Technology. Driven
-                    by a passion for coding, I want to become a fullstack developer. My goal is to excel in this field,
+                    I&apos;m a student at SaiGon University, pursuing a degree in Information Technology. Driven by a
+                    passion for coding, I want to become a fullstack developer. My goal is to excel in this field,
                     contribute to technological advancements, and build innovative applications.
                     <span className="animate"></span>
                 </p>
@@ -45,9 +49,13 @@ const Home = forwardRef((props, ref) => {
                 </div>
             </div>
             <div className="home-object">
-                <div className="home-img">
-                    <p className="tag">Hi. I&apos;m Quan Phat</p>
+                <div className="home-video">
+                    <video src={home_video} autoPlay loop muted className="video-home" />
                 </div>
+                <img className="github" src={github} />
+                <img className="copilot" src={copilot} />
+                <img className="hanhtinh" src={hanhtinh} />
+
                 <span className="animate"></span>
             </div>
         </Container>
@@ -60,14 +68,14 @@ const Container = styled.section`
     align-items: center;
     justify-content: space-between;
     padding: 0 9%;
-
+    background-color: #040e1e;
     &.show-animate .animate {
         position: absolute;
         top: 0;
         right: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--bg-color);
+        background-color: #040e1e;
         z-index: 98;
         animation: showRight 1s ease forwards;
     }
@@ -79,6 +87,7 @@ const Container = styled.section`
             font-weight: 700;
             line-height: 1.3;
             .animate {
+                background-color: #040e1e;
                 animation-delay: 0.3s;
             }
             span {
@@ -98,44 +107,43 @@ const Container = styled.section`
 
     .home-object {
         position: relative;
-        overflow: hidden;
-        padding: 80px;
-
-        .home-img {
+        .home-video {
             position: relative;
-            width: 34rem;
-            height: 34rem;
+            width: 60rem;
+            height: 60rem;
             border-radius: 50%;
-            background-image: url('bgme.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            box-shadow: 0 0 20px var(--main-color), 0 0 60px var(--main-color), 0 0 60px var(--main-color),
-                0 0 60px var(--main-color);
-            cursor: pointer;
-            .tag {
-                position: absolute;
-                top: 65%;
-                left: 50%;
-                background-color: var(--main-color);
-                border-radius: 4px;
-                padding: 0.4rem 0.8rem;
-                font-size: 1.5rem;
-                transform: translateX(-50%);
-                transition: 1s;
-                opacity: 0;
-            }
-            &:hover .tag {
-                opacity: 1;
+            video {
+                width: 100%;
+                height: 100%;
             }
         }
+        .github {
+            position: absolute;
+            bottom: 15%;
+            right: 5%;
+            width: 120px;
+        }
+        .copilot {
+            position: absolute;
+            top: 30%;
+            left: 0;
+            width: 120px;
+        }
+        .hanhtinh {
+            position: absolute;
+            top: 20%;
+            right: 0;
+            width: 70px;
+        }
         .animate {
+            background-color: #040e1e;
             animation-delay: 1.8s;
         }
     }
     .text-animate {
         position: relative;
         width: 32.8rem;
+        background-color: #040e1e;
         h3 {
             font-size: 3.2rem;
             font-weight: 700;
@@ -171,6 +179,7 @@ const Container = styled.section`
         width: 34.5rem;
         height: 5rem;
         .animate {
+            background-color: #040e1e;
             animation-delay: 1.2s;
         }
     }
@@ -181,6 +190,7 @@ const Container = styled.section`
         display: flex;
         justify-content: space-between;
         .animate {
+            background-color: #040e1e;
             animation-delay: 1.5s;
         }
         a {

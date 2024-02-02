@@ -62,7 +62,7 @@ html::-webkit-scrollbar-thumb {
     #skills {
         padding: 4rem 4%;
     }
-    #hobbies{
+    #hobbies {
         padding: 4rem 4%;
     }
     #contact {
@@ -74,7 +74,7 @@ html::-webkit-scrollbar-thumb {
 }
 @media (max-width: 520px) {
     html {
-      font-size: 50%;
+        font-size: 50%;
     }
 }
 

@@ -33,7 +33,9 @@ const Contact = forwardRef((props, ref) => {
                     <textarea name="" id="" cols={30} rows={10} placeholder="Your Message" required></textarea>
                     <span className="focus"></span>
                 </div>
-                <div className='btn-box'><Button to={"/"}>Submit</Button></div>
+                <div className="btn-box">
+                    <Button to={'/'}>Submit</Button>
+                </div>
             </form>
         </Container>
     );
@@ -94,26 +96,26 @@ const Container = styled.section`
             resize: none;
         }
     }
-    .btn-box{
+    .btn-box {
         text-align: center;
     }
+
     @media (max-width: 991px) {
-        form{
+        form {
             width: 90%;
         }
     }
     @media (max-width: 520px) {
-        form{
+        form {
             width: 100%;
         }
     }
     @media (max-width: 462px) {
-        form{
-            .input-box .input-field{
+        form {
+            .input-box .input-field {
                 width: 100%;
             }
         }
-
     }
 `;
 export default Contact;

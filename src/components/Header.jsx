@@ -137,7 +137,7 @@ const Container = styled.div`
         right: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--bg-color);
+        background-color: #040e1e;
         z-index: 98;
         animation: showRight 1s ease forwards;
         animation-delay: calc(0.3s);
