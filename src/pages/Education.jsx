@@ -9,15 +9,14 @@ const Education = forwardRef((props, ref) => {
     useEffect(() => {
         const data = [
             {
-                period: '2021 - 2025',
-                title: 'Student in SaiGon University',
-                content: `I'm a student at SaiGon University, pursuing a degree in Information Technology. Driven
-                by a passion for coding.`,
+                period: '2018 - 2021',
+                title: 'Student in Vinh Binh High School',
+                content: `During the period from 2018 to 2021, I was a student at Vinh Binh High School. There are even many new things waiting, which will be shared soon.`,
             },
             {
-                period: '2025 - 2099',
-                title: 'Comming Soon',
-                content: `Comming Soon`,
+                period: '2021 - 2025',
+                title: 'Student in SaiGon University',
+                content: `Driven by my strong love for coding, I thrive on challenges to further develop myself.`,
             },
             {
                 period: '2025 - 2099',
@@ -27,19 +26,22 @@ const Education = forwardRef((props, ref) => {
         ];
         const ex_data = [
             {
-                period: '2023 - 2023',
-                title: 'Built a Realtime Chat-app',
-                content: `Build a real-time chat app project using ReactJS, NestJs, MongoDB, Socketio and integrate ChatGPT API`,
+                period: '2023 - Present',
+                title: 'Furniture Shop - Ecommerce',
+                content: `Building a furniture sales management website with all the features for a modern online experience using Laravel, Bootstrap, JQuery and various other technologies.`,
+                link: 'https://github.com/lequanphat/furniture_shop',
             },
             {
-                period: '2025 - 2099',
-                title: 'Comming Soon',
-                content: `Comming Soon`,
+                period: '2022 - 2023',
+                title: 'Realtime VideoCall, Chat Application',
+                content: `Building a real-time messaging, calling, and video call application with ReactJS, NestJS, MongoDB, MUI, SocketIO, WebRTC and various other technologies.`,
+                link: 'https://github.com/lequanphat/chat-app',
             },
             {
-                period: '2025 - 2099',
-                title: 'Comming Soon',
-                content: `Comming Soon`,
+                period: '2021 - 2022',
+                title: 'Travel Tickets Booking',
+                content: `Design and build travel ticket booking website interface using pure HTML, CSS, and JavaScript.`,
+                link: 'https://github.com/lequanphat/travel-website',
             },
         ];
         setEducationData(data);

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ExperienceBox from './ExperienceBox';
 
 // eslint-disable-next-line react/prop-types
-function ExperienceColumn({title, data , right }) {
+function ExperienceColumn({ title, data, right }) {
     return (
         <Container theme={{ right: right }}>
             <h3 className="title">
@@ -11,14 +11,16 @@ function ExperienceColumn({title, data , right }) {
                 <span className="animate"></span>
             </h3>
             <div className={`education-box`}>
-                {
-                    data.map((item, index) => (<ExperienceBox
-                            key={index}
-                            period={item.period}
-                            title={item.title}
-                            content={item.content}
-                            right={right}
-                        />))}
+                {data.map((item, index) => (
+                    <ExperienceBox
+                        key={index}
+                        period={item.period}
+                        title={item.title}
+                        content={item.content}
+                        right={right}
+                        link={item.link}
+                    />
+                ))}
             </div>
         </Container>
     );

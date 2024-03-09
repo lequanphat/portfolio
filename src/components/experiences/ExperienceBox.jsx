@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 // eslint-disable-next-line react/prop-types
-function ExperienceBox({period, title, content,  right}) {
+function ExperienceBox({ period, title, content, right, link }) {
     return (
         <Container theme={{ right: right }}>
             {' '}
@@ -11,12 +11,14 @@ function ExperienceBox({period, title, content,  right}) {
                         <FaRegCalendarAlt />
                     </span>
                     {period}
-                    
                 </div>
                 <h3>{title}</h3>
-                <p>
-                {content}
-                </p>
+                <p>{content}</p>
+                {link && (
+                    <p className="link">
+                        Link source: <a href={link}>{link}</a>
+                    </p>
+                )}
             </div>
         </Container>
     );
@@ -29,7 +31,7 @@ const Container = styled.div`
         content: '';
         position: absolute;
         top: 0;
-        left: ${props => props.theme.right ? 'calc(100% - 0.8rem)'  : '-0.9rem'};
+        left: ${(props) => (props.theme.right ? 'calc(100% - 0.8rem)' : '-0.9rem')};
         width: 1.6rem;
         height: 1.6rem;
         background-color: var(--main-color);
@@ -41,12 +43,13 @@ const Container = styled.div`
         border: 0.2rem solid var(--main-color);
         border-radius: 0.6rem;
         margin-bottom: 2rem;
+        min-height: 190px;
 
         &::before {
             content: '';
             position: absolute;
             top: 0;
-            left: ${props => props.theme.right ? '0'  : '0'};
+            left: ${(props) => (props.theme.right ? '0' : '0')};
             width: 0;
             height: 100%;
             background-color: var(--second-bg-color);
@@ -72,6 +75,13 @@ const Container = styled.div`
         }
         p {
             font-size: 1.6rem;
+        }
+        .link {
+            margin-top: 4px;
+        }
+        .link a {
+            font-size: 1.4rem;
+            color: var(--main-color);
         }
     }
 `;

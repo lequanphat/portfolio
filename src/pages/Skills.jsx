@@ -13,7 +13,6 @@ const Skills = forwardRef((props, ref) => {
             <div className="skills-wrapper">
                 <div className="skills-left">
                     <h2>Frontend Skills</h2>
-                    <SkillItem image={'sass.png'} title={'SASS'} content={'Syntactically Awesome Style Sheets.'} />
                     <SkillItem image={'tailwind.png'} title={'Tailwind'} content={'Used for faster CSS styling.'} />
                     <SkillItem
                         image={'mui.png'}
@@ -24,8 +23,9 @@ const Skills = forwardRef((props, ref) => {
                     <SkillItem
                         image={'react.png'}
                         title={'React'}
-                        content={'The library for web and native user interfaces'}
+                        content={'The library for web and native user interfaces.'}
                     />
+                    <SkillItem image={'next.png'} title={'NextJS'} content={'Create high-quality web applications.'} />
                 </div>
                 <div className="box">
                     <ThreeDBox />
@@ -36,16 +36,29 @@ const Skills = forwardRef((props, ref) => {
                     <SkillItem
                         image={'firebase.png'}
                         title={'Firebase'}
-                        content={'An realtime database for webs and apps.'}
+                        content={'Helps you build and grow apps users love.'}
                     />
-                    <SkillItem image={'odm.png'} title={'ORM & ODM'} content={`Object Relational and Data Mapping.`} />
+                    <SkillItem
+                        image={'ggclound.png'}
+                        title={'Google Clound Console'}
+                        content={`Google Cloud computing services.`}
+                    />
+
+                    <SkillItem
+                        image={'graphql.png'}
+                        title={'RESTfulAPI, GraphQL'}
+                        content={'An query language for your API.'}
+                    />
+                    <SkillItem
+                        image={'nest.webp'}
+                        title={'Express, NestJS, Laravel, Django'}
+                        content={'Some powerful frameworks.'}
+                    />
                     <SkillItem
                         image={'docker.png'}
                         title={'Docker Engine'}
                         content={'To build, share, and run app anywhere.'}
                     />
-                    <SkillItem image={'node.png'} title={'NodeJS'} content={'Cross-platform JavaScript runtime evr.'} />
-                    <SkillItem image={'nest.webp'} title={'NestJS'} content={'A progressive Node.js framework'} />
                 </div>
             </div>
         </Container>
