@@ -8,27 +8,32 @@ const MyLife = forwardRef((props, ref) => {
         <Container id="hobbies" ref={ref}>
             <h2 className="heading">
                 My <span>Hobbies</span>
+                <span className="animate"></span>
             </h2>
             <div className="skills-row">
                 <div className="skills-column">
-                    <h3 className="title">Really love it</h3>
+                    <h3 className="title">
+                        Really love it<span className="animate"></span>
+                    </h3>
                     <div className="skills-box">
                         <div className="skill-content">
-                            <Progress name={"Watching movies"} value={80}/>
-                            <Progress name={"Playing game"} value={65} />
-                            <Progress name={"Coding"} value={100} />
-                            <Progress name={"Sleeping"} value={80} />
+                            <Progress name={'Watching movies'} value={80} />
+                            <Progress name={'Playing game'} value={65} />
+                            <Progress name={'Coding'} value={100} />
+                            <Progress name={'Sleeping'} value={80} />
                         </div>
                     </div>
                 </div>
                 <div className="skills-column">
-                    <h3 className="title ">Maybe like it</h3>
+                    <h3 className="title ">
+                        Maybe like it<span className="animate"></span>
+                    </h3>
                     <div className="skills-box">
                         <div className="skill-content">
-                            <Progress name={"Outdoor activities"} value={45} />
-                            <Progress name={"Traveling"} value={65}/>
-                            <Progress name={"Reading"} value={55} />
-                            <Progress name={"Cooking"} value={1} />
+                            <Progress name={'Outdoor activities'} value={45} />
+                            <Progress name={'Traveling'} value={65} />
+                            <Progress name={'Reading'} value={55} />
+                            <Progress name={'Cooking'} value={1} />
                         </div>
                     </div>
                 </div>
@@ -45,10 +50,29 @@ const Container = styled.div`
     align-items: center;
     min-height: auto;
     background-color: var(--bg-color);
+    .animate {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--bg-color);
+        z-index: 98;
+    }
+    &.show-animate .animate {
+        animation: showRight 1.2s ease forwards;
+    }
     .heading {
+        position: relative;
         font-size: 3.8rem;
         margin-bottom: 3rem;
         text-align: center;
+    }
+    .title {
+        position: relative;
+        .animate {
+            animation-delay: 0.8s;
+        }
     }
     span {
         color: var(--main-color);
@@ -65,7 +89,6 @@ const Container = styled.div`
         .title {
             font-size: 2.5rem;
             margin: 0 0 1.5rem;
-           
         }
     }
     .skills-box {

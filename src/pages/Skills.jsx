@@ -12,7 +12,9 @@ const Skills = forwardRef((props, ref) => {
             </h2>
             <div className="skills-wrapper">
                 <div className="skills-left">
-                    <h2>Frontend Skills</h2>
+                    <h2>
+                        Frontend Skills<span className="animate"></span>
+                    </h2>
                     <SkillItem image={'tailwind.png'} title={'Tailwind'} content={'Used for faster CSS styling.'} />
                     <SkillItem
                         image={'mui.png'}
@@ -31,7 +33,9 @@ const Skills = forwardRef((props, ref) => {
                     <ThreeDBox />
                 </div>
                 <div className="skills-right">
-                    <h2>Backend Skills</h2>
+                    <h2>
+                        Backend Skills<span className="animate"></span>
+                    </h2>
 
                     <SkillItem
                         image={'firebase.png'}
@@ -110,8 +114,12 @@ const Container = styled.section`
     .skills-right {
         flex: 2 1 30rem;
         h2 {
+            position: relative;
             font-size: 2.4rem;
             margin-bottom: 1rem;
+            .animate {
+                animation-delay: 0.9s;
+            }
         }
     }
     .box {

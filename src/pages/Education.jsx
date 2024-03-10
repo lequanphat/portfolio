@@ -57,7 +57,6 @@ const Education = forwardRef((props, ref) => {
             <div className="education-row">
                 <ExperienceColumn title={'Education'} data={educationData} />
                 <ExperienceColumn title={'Experiences'} data={experiencesData} right={'right'} />
-                <span className="animate"></span>
             </div>
         </Container>
     );
@@ -87,9 +86,6 @@ const Container = styled.section`
         font-size: 3.8rem;
         margin-bottom: 3rem;
         text-align: center;
-        .animate {
-            animation-delay: 0.3s;
-        }
     }
     span {
         color: var(--main-color);
@@ -99,11 +95,6 @@ const Container = styled.section`
         display: flex;
         flex-wrap: wrap;
         gap: 2rem;
-        .animate {
-            width: 120%;
-            right: -10%;
-            animation-delay: 0.9s;
-        }
     }
     @media (max-width: 462px) {
         .education {

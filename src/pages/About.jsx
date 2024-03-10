@@ -16,26 +16,32 @@ const About = forwardRef((props, ref) => {
                             <div className="about-detail-item">
                                 <p>Full name:</p>
                                 <a>Le Quan Phat</a>
+                                <span className="animate"></span>
                             </div>
                             <div className="about-detail-item">
                                 <p>Birth date:</p>
                                 <a>24/11/2003</a>
+                                <span className="animate"></span>
                             </div>
                             <div className="about-detail-item">
                                 <p>Email address:</p>
                                 <a href="mailto:lequanphat3579@gmail.com">lequanphat3579@gmail.com</a>
+                                <span className="animate"></span>
                             </div>
                             <div className="about-detail-item">
                                 <p>Phone number:</p>
                                 <a href="tel:+84383642670">+84383642670</a>
+                                <span className="animate"></span>
                             </div>
                             <div className="about-detail-item">
                                 <p>Address:</p>
                                 <a>District 8, Ho Chi Minh City, Viet Nam</a>
+                                <span className="animate"></span>
                             </div>
                             <div className="about-detail-item">
                                 <p>Specialization:</p>
                                 <a>Software Engineer</a>
+                                <span className="animate"></span>
                             </div>
                         </div>
                     </div>
@@ -46,7 +52,8 @@ const About = forwardRef((props, ref) => {
                             <span className="animate"></span>
                         </div>
                         <h3>
-                            Quan Phat<span className="animate"></span>
+                            Quan Phat
+                            <span className="animate"></span>
                         </h3>
                     </div>
                 </div>
@@ -58,6 +65,7 @@ const About = forwardRef((props, ref) => {
                             the Frontend and Backend realms of web development. My goal is to seamlessly integrate
                             diverse technologies, delivering robust and user-centric solutions.
                         </p>
+                        <span className="animate"></span>
                     </div>
                 </div>
                 <div className="about-wrapper">
@@ -68,6 +76,7 @@ const About = forwardRef((props, ref) => {
                             developers, but not for me. Second, your grandmother can run faster than your code, remember
                             this :))
                         </p>
+                        <span className="animate"></span>
                     </div>
                 </div>
             </div>
@@ -91,16 +100,15 @@ const Container = styled.section`
         z-index: 98;
     }
     &.show-animate .animate {
-        animation: showRight 1s ease forwards;
+        animation: showRight 1.2s ease forwards;
     }
     .heading {
         position: relative;
+        width: fit-content;
         font-size: 3.8rem;
+        margin: 0 auto;
         margin-bottom: 3rem;
         text-align: center;
-        .animate {
-            animation-delay: 0.3s;
-        }
     }
     span {
         color: var(--main-color);
@@ -117,6 +125,14 @@ const Container = styled.section`
         flex-direction: column;
         align-items: center;
         width: 40%;
+        h3 {
+            position: relative;
+            font-size: 2.2rem;
+            margin: 1rem 0;
+            .animate {
+                animation-delay: 2.4s;
+            }
+        }
     }
     .about-img {
         position: relative;
@@ -127,7 +143,7 @@ const Container = styled.section`
         justify-content: center;
         align-items: center;
         .animate {
-            animation-delay: 0.6s;
+            animation-delay: 2.1s;
         }
         img {
             width: 90%;
@@ -158,14 +174,7 @@ const Container = styled.section`
             }
         }
     }
-    h3 {
-        position: relative;
-        font-size: 2.2rem;
-        margin: 1rem 0;
-        .animate {
-            animation-delay: 0.9s;
-        }
-    }
+
     .about-content {
         display: flex;
         align-items: center;
@@ -174,6 +183,7 @@ const Container = styled.section`
         .about-details {
             width: 100%;
             .about-detail-item {
+                position: relative;
                 display: flex;
                 font-size: 1.54rem;
                 margin: 1rem 0;
@@ -193,7 +203,11 @@ const Container = styled.section`
     }
     .further-item {
         display: flex;
+        position: relative;
         width: 100%;
+        .animate {
+            animation-delay: 2.4s;
+        }
         .further {
             width: 165px;
             font-size: 1.54rem;
@@ -201,6 +215,36 @@ const Container = styled.section`
         .further-details {
             flex: 1;
             font-size: 1.54rem;
+        }
+    }
+    .about-detail-item:nth-child(1) {
+        .animate {
+            animation-delay: 0.3s;
+        }
+    }
+    .about-detail-item:nth-child(2) {
+        .animate {
+            animation-delay: 0.6s;
+        }
+    }
+    .about-detail-item:nth-child(3) {
+        .animate {
+            animation-delay: 0.9s;
+        }
+    }
+    .about-detail-item:nth-child(4) {
+        .animate {
+            animation-delay: 1.2s;
+        }
+    }
+    .about-detail-item:nth-child(5) {
+        .animate {
+            animation-delay: 1.5s;
+        }
+    }
+    .about-detail-item:nth-child(6) {
+        .animate {
+            animation-delay: 1.8s;
         }
     }
 

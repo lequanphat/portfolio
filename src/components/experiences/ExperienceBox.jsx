@@ -19,6 +19,7 @@ function ExperienceBox({ period, title, content, right, link }) {
                         Link source: <a href={link}>{link}</a>
                     </p>
                 )}
+                <span className="animate"></span>
             </div>
         </Container>
     );
@@ -82,6 +83,9 @@ const Container = styled.div`
         .link a {
             font-size: 1.4rem;
             color: var(--main-color);
+        }
+        .animate {
+            animation-delay: 0.9s !important;
         }
     }
 `;
