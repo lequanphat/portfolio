@@ -14,10 +14,10 @@ const MyLife = forwardRef((props, ref) => {
                     <h3 className="title">Really love it</h3>
                     <div className="skills-box">
                         <div className="skill-content">
-                            <Progress name={"Watching movies"} value={70}/>
-                            <Progress name={"Playing game"} value={60} />
-                            <Progress name={"Traveling"} value={50} />
-                            <Progress name={"Coding"} value={80} />
+                            <Progress name={"Watching movies"} value={80}/>
+                            <Progress name={"Playing game"} value={65} />
+                            <Progress name={"Coding"} value={100} />
+                            <Progress name={"Sleeping"} value={80} />
                         </div>
                     </div>
                 </div>
@@ -25,10 +25,10 @@ const MyLife = forwardRef((props, ref) => {
                     <h3 className="title ">Maybe like it</h3>
                     <div className="skills-box">
                         <div className="skill-content">
-                            <Progress name={"Outdoor activities"} value={40} />
-                            <Progress name={"Reading"} value={50} />
-                            <Progress name={"Cooking"} value={20} />
-                            <Progress name={"Sleep"} value={60}/>
+                            <Progress name={"Outdoor activities"} value={45} />
+                            <Progress name={"Traveling"} value={65}/>
+                            <Progress name={"Reading"} value={55} />
+                            <Progress name={"Cooking"} value={1} />
                         </div>
                     </div>
                 </div>

@@ -71,10 +71,10 @@ const Container = styled.div`
             }
         }
         h3 {
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
         p {
-            font-size: 1.6rem;
+            font-size: 1.54rem;
         }
         .link {
             margin-top: 4px;
