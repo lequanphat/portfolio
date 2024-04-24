@@ -1,12 +1,39 @@
 /* eslint-disable react/display-name */
 import styled from 'styled-components';
-import { forwardRef, useState } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
+import { FeedBackItem } from '../components/feedbacks/FeedBackItem';
 const Contact = forwardRef((props, ref) => {
+    const [feedbacks, setFeedbacks] = useState([]);
+    const [showAll, setShowAll] = useState(false);
     const [error, setError] = useState(false);
     const [success, setSuccess] = useState(false);
     const [fullname, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const SHEET_ID = '1y8jRDoDKE2tvQiisREg3GSfUIHhah6818OwBFJbNgAU';
+    const SHEET_TITLE = 'feedbacks';
+    const SHEET_RANGE = 'A2:D100';
+    const FULL_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_TITLE}&range=${SHEET_RANGE}`;
+    useEffect(() => {
+        fetch(FULL_URL)
+            .then((res) => res.text())
+            .then((text) => {
+                const json = JSON.parse(text.substring(47).slice(0, -2));
+                console.log(json.table.rows);
+                let data = json.table.rows.map((row) => {
+                    return {
+                        date: row.c[0]?.f,
+                        name: row.c[1]?.v,
+                        email: row.c[2]?.v,
+                        content: row.c[3]?.v,
+                    };
+                });
+                data = data.reverse();
+                setFeedbacks(data);
+            });
+    }, []);
+
+    // handle submit
     const handleSend = () => {
         if (!fullname || !email || !message) {
             setError(true);
@@ -27,6 +54,13 @@ const Contact = forwardRef((props, ref) => {
             console.log(response);
             setSuccess(true);
             setError(false);
+            const feedback = {
+                date: 'now',
+                name: fullname,
+                email: email,
+                content: message,
+            };
+            setFeedbacks((pre) => [feedback, ...pre]);
         });
     };
     return (
@@ -71,7 +105,6 @@ const Contact = forwardRef((props, ref) => {
                         cols={30}
                         rows={10}
                         placeholder="Your Message"
-                        required
                         value={message}
                         onChange={(e) => {
                             setMessage(e.target.value);
@@ -94,13 +127,51 @@ const Contact = forwardRef((props, ref) => {
                         Submit
                     </button>
                 </div>
+                <div className="some-feedbacks">
+                    <h1>Latest feedbacks</h1>
+                    <div className="feedbacks-list">
+                        {showAll
+                            ? feedbacks.map((feedback, index) => (
+                                  <FeedBackItem
+                                      key={index}
+                                      name={feedback.name}
+                                      email={feedback.email}
+                                      content={feedback.content}
+                                      date={feedback.date}
+                                  />
+                              ))
+                            : feedbacks
+                                  .slice(0, 3)
+                                  .map((feedback, index) => (
+                                      <FeedBackItem
+                                          key={index}
+                                          name={feedback.name}
+                                          email={feedback.email}
+                                          content={feedback.content}
+                                          date={feedback.date}
+                                      />
+                                  ))}
+                        {}
+                    </div>
+                    <div className="footer">
+                        <button
+                            type="button"
+                            className="show-all-btn"
+                            onClick={() => {
+                                setShowAll(!showAll);
+                            }}
+                        >
+                            {showAll ? 'Collapse' : 'Show all'}
+                        </button>
+                    </div>
+                </div>
             </form>
         </Container>
     );
 });
 const Container = styled.section`
-    height: 100vh;
-    padding: 0 9%;
+    min-height: 100vh;
+    padding: 32px 9%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,6 +254,34 @@ const Container = styled.section`
             }
             &.error {
                 color: red;
+            }
+        }
+    }
+    .some-feedbacks {
+        padding-top: 60px;
+        h1 {
+            font-size: 22px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .feedbacks-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding-bottom: 32px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 24px;
+            .show-all-btn {
+                font-size: 16px;
+                background-color: transparent;
+                color: var(--main-color);
+                border: none;
+                outline: none;
+                cursor: pointer;
             }
         }
     }

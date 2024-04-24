@@ -14,7 +14,6 @@ const About = forwardRef((props, ref) => {
             .then((res) => res.text())
             .then((text) => {
                 const json = JSON.parse(text.substring(47).slice(0, -2));
-                console.log(json.table.rows);
                 const data = json.table.rows.map((row) => {
                     return {
                         title: row.c[0]?.v,
@@ -68,7 +67,7 @@ const About = forwardRef((props, ref) => {
                 </div>
                 <div className="about-wrapper">
                     <div className="further-item">
-                    <p className="further">{myData[7]?.title}:</p>
+                        <p className="further">{myData[7]?.title}:</p>
                         <p className="further-details">{myData[7]?.content}</p>
                         <span className="animate"></span>
                     </div>
