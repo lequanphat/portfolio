@@ -12,14 +12,13 @@ const Contact = forwardRef((props, ref) => {
     const [message, setMessage] = useState('');
     const SHEET_ID = '1y8jRDoDKE2tvQiisREg3GSfUIHhah6818OwBFJbNgAU';
     const SHEET_TITLE = 'feedbacks';
-    const SHEET_RANGE = 'A2:D100';
+    const SHEET_RANGE = 'A:D';
     const FULL_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_TITLE}&range=${SHEET_RANGE}`;
     useEffect(() => {
         fetch(FULL_URL)
             .then((res) => res.text())
             .then((text) => {
                 const json = JSON.parse(text.substring(47).slice(0, -2));
-                console.log(json.table.rows);
                 let data = json.table.rows.map((row) => {
                     return {
                         date: row.c[0]?.f,
