@@ -10,13 +10,13 @@ function Header({ arrRef }) {
     const [scrolled, setScrolled] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
     const [isShowNavBar, setIsShowNavBar] = useState(false);
-    
+
     useEffect(() => {
         const handleScroll = () => {
             const height = window.scrollY + 300;
             const isScrolled = window.scrollY > 0;
             for (let i = 5; i >= 0; i--) {
-                if (height > arrRef[i].current.offsetTop ) {
+                if (height > arrRef[i].current.offsetTop) {
                     arrRef[i].current.classList.add('show-animate');
                     setActiveIndex(i);
                     // for (let j = 4; j >= 0; j--) {
@@ -75,7 +75,7 @@ function Header({ arrRef }) {
                     className={`${activeIndex === 2 && 'active'}`}
                     onClick={handleClickNavBar}
                 >
-                    Education
+                    Projects
                 </Link>
                 <Link
                     to="skills"
@@ -99,7 +99,7 @@ function Header({ arrRef }) {
                     className={`${activeIndex === 5 && 'active'}`}
                     onClick={handleClickNavBar}
                 >
-                    Contact
+                    Feedback
                 </Link>
                 <span className="active-nav"></span>
                 <span className="navbar-animate"></span>

@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import About from './pages/About';
-import Contact from './pages/Contact';
+import Feedback from './pages/Feedback';
 import MyProjects from './pages/MyProjects';
 import Home from './pages/Home';
 import MyLife from './pages/MyLife';
@@ -16,13 +16,13 @@ function App() {
     const contactRef = useRef();
     return (
         <>
-            <Header arrRef={[homeRef, aboutRef, educationRef, skillsRef,hobbiesRef, contactRef]} />
-            <Home ref={homeRef}/>
-            <About ref={aboutRef}/>
-            <MyProjects  ref={educationRef}/>
-            <Skills ref={skillsRef}/>
-            <MyLife ref={hobbiesRef}/>
-            <Contact ref={contactRef}/>
+            <Header arrRef={[homeRef, aboutRef, educationRef, skillsRef, hobbiesRef, contactRef]} />
+            <Home ref={homeRef} />
+            <About ref={aboutRef} />
+            <MyProjects ref={educationRef} />
+            <Skills ref={skillsRef} />
+            <MyLife ref={hobbiesRef} />
+            <Feedback ref={contactRef} />
             <Footer />
         </>
     );

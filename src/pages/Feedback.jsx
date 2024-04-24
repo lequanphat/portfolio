@@ -2,19 +2,22 @@
 import styled from 'styled-components';
 import { forwardRef, useEffect, useState } from 'react';
 import { FeedBackItem } from '../components/feedbacks/FeedBackItem';
-const Contact = forwardRef((props, ref) => {
+const Feedback = forwardRef((props, ref) => {
     const [feedbacks, setFeedbacks] = useState([]);
     const [showAll, setShowAll] = useState(false);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState('');
+    const [pending, setPending] = useState(false);
     const [success, setSuccess] = useState(false);
     const [fullname, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
-    const SHEET_ID = '1y8jRDoDKE2tvQiisREg3GSfUIHhah6818OwBFJbNgAU';
-    const SHEET_TITLE = 'feedbacks';
-    const SHEET_RANGE = 'A:D';
-    const FULL_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_TITLE}&range=${SHEET_RANGE}`;
+
+    // effect
     useEffect(() => {
+        const SHEET_ID = '1y8jRDoDKE2tvQiisREg3GSfUIHhah6818OwBFJbNgAU';
+        const SHEET_TITLE = 'feedbacks';
+        const SHEET_RANGE = 'A:D';
+        const FULL_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_TITLE}&range=${SHEET_RANGE}`;
         fetch(FULL_URL)
             .then((res) => res.text())
             .then((text) => {
@@ -34,30 +37,47 @@ const Contact = forwardRef((props, ref) => {
 
     // handle submit
     const handleSend = () => {
-        if (!fullname || !email || !message) {
-            setError(true);
+        if (!fullname.trim() || !email.trim() || !message.trim()) {
+            setError('Oops! 😞 Please complete your information and message before submitting.');
             setSuccess(false);
             return;
         }
-        console.log({ fullname, email, message });
+        if (fullname.length > 40) {
+            setError('Oops! 😞 Your name are too long. Please shorten it.');
+            setSuccess(false);
+            return;
+        }
+        if (email.length > 40) {
+            setError('Oops! 😞 Your email are too long. Please shorten it.');
+            setSuccess(false);
+            return;
+        }
+        if (message.length > 500) {
+            setError('Oops! 😞 Your message are too long. Please shorten it.');
+            setSuccess(false);
+            return;
+        }
+
         const origial_url =
             'https://docs.google.com/forms/u/0/d/e/1FAIpQLSeu8Zj-cGcxY1qkV-11zDuH4Oxe1bz8-WlWhChITZ-TpJSlhQ/formResponse';
-        const url = `${origial_url}?usp=pp_url&entry.558597903=${fullname}&entry.2115553539=${email}&entry.1601927691=${message}`;
+        const url = `${origial_url}?usp=pp_url&entry.558597903=${fullname.trim()}&entry.2115553539=${email.trim()}&entry.1601927691=${message.trim()}`;
+        setPending(true);
+        setSuccess(false);
         fetch(url, {
             method: 'POST',
             mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json',
             },
-        }).then((response) => {
-            console.log(response);
+        }).then(() => {
+            setPending(false);
             setSuccess(true);
             setError(false);
             const feedback = {
                 date: 'now',
-                name: fullname,
-                email: email,
-                content: message,
+                name: fullname.trim(),
+                email: email.trim(),
+                content: message.trim(),
             };
             setFeedbacks((pre) => [feedback, ...pre]);
         });
@@ -65,7 +85,7 @@ const Contact = forwardRef((props, ref) => {
     return (
         <Container id="contact" ref={ref}>
             <h2 className="heading">
-                Contact <span>Me</span>
+                Feed<span>back</span>
             </h2>
             <form action="#">
                 <div className="input-box">
@@ -113,11 +133,8 @@ const Contact = forwardRef((props, ref) => {
                     <span className="focus"></span>
                 </div>
                 <div className="btn-box">
-                    {error && (
-                        <p className="message error">
-                            Oops! 😞 Please complete your information and message before submitting.
-                        </p>
-                    )}
+                    {pending && <p className="message">Sending...</p>}
+                    {error && <p className="message error">{error}</p>}
                     {success && (
                         <p className="message success">Great job! 🤩 Your submission has been received. Thank you! </p>
                     )}
@@ -303,4 +320,4 @@ const Container = styled.section`
         }
     }
 `;
-export default Contact;
+export default Feedback;

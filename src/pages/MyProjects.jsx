@@ -6,14 +6,16 @@ import ExperienceColumn from '../components/experiences/ExperiencesColumn';
 const MyProjects = forwardRef((props, ref) => {
     const [basicData, setBasicData] = useState([]);
     const [advancedData, setAdvancedData] = useState([]);
-    const SHEET_ID = '1y8jRDoDKE2tvQiisREg3GSfUIHhah6818OwBFJbNgAU';
-    const SHEET_TITLE_1 = 'basic-projects';
-    const SHEET_TITLE_2 = 'advanced-projects';
-    const SHEET_RANGE = 'B4:E8';
-    const FULL_URL_1 = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_TITLE_1}&range=${SHEET_RANGE}`;
-    const FULL_URL_2 = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_TITLE_2}&range=${SHEET_RANGE}`;
 
     useEffect(() => {
+        const SHEET_ID = '1y8jRDoDKE2tvQiisREg3GSfUIHhah6818OwBFJbNgAU';
+        const SHEET_TITLE_1 = 'basic-projects';
+        const SHEET_TITLE_2 = 'advanced-projects';
+        const SHEET_RANGE = 'B4:E8';
+        const FULL_URL_1 = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_TITLE_1}&range=${SHEET_RANGE}`;
+        const FULL_URL_2 = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_TITLE_2}&range=${SHEET_RANGE}`;
+
+        // fetch data from google sheet
         fetch(FULL_URL_1)
             .then((res) => res.text())
             .then((text) => {
@@ -29,6 +31,7 @@ const MyProjects = forwardRef((props, ref) => {
                 setBasicData(data);
             });
 
+        // fetch data from google sheet
         fetch(FULL_URL_2)
             .then((res) => res.text())
             .then((text) => {

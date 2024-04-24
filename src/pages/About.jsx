@@ -4,12 +4,12 @@ import styled from 'styled-components';
 
 const About = forwardRef((props, ref) => {
     const [myData, setMyData] = useState([]);
-    const SHEET_ID = '1y8jRDoDKE2tvQiisREg3GSfUIHhah6818OwBFJbNgAU';
-    const SHEET_TITLE = 'about';
-    const SHEET_RANGE = 'B4:C11';
-    const FULL_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_TITLE}&range=${SHEET_RANGE}`;
 
     useEffect(() => {
+        const SHEET_ID = '1y8jRDoDKE2tvQiisREg3GSfUIHhah6818OwBFJbNgAU';
+        const SHEET_TITLE = 'about';
+        const SHEET_RANGE = 'B4:C11';
+        const FULL_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_TITLE}&range=${SHEET_RANGE}`;
         fetch(FULL_URL)
             .then((res) => res.text())
             .then((text) => {
