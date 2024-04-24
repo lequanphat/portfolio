@@ -15,19 +15,19 @@ const Skills = forwardRef((props, ref) => {
                     <h2>
                         Frontend Skills<span className="animate"></span>
                     </h2>
-                    <SkillItem image={'tailwind.png'} title={'Tailwind'} content={'Used for faster CSS styling.'} />
+                    <SkillItem image={'images/tailwind.png'} title={'Tailwind'} content={'Used for faster CSS styling.'} />
                     <SkillItem
-                        image={'mui.png'}
+                        image={'images/mui.png'}
                         title={'Material UI'}
                         content={'Move faster with intuitive React UI tools.'}
                     />
-                    <SkillItem image={'redux.png'} title={'Redux Toolkit'} content={'Use Redux to manage state.'} />
+                    <SkillItem image={'images/redux.png'} title={'Redux Toolkit'} content={'Use Redux to manage state.'} />
                     <SkillItem
-                        image={'react.png'}
+                        image={'images/react.png'}
                         title={'React'}
                         content={'The library for web and native user interfaces.'}
                     />
-                    <SkillItem image={'next.png'} title={'NextJS'} content={'Create high-quality web applications.'} />
+                    <SkillItem image={'images/next.png'} title={'NextJS'} content={'Create high-quality web applications.'} />
                 </div>
                 <div className="box">
                     <ThreeDBox />
@@ -38,28 +38,28 @@ const Skills = forwardRef((props, ref) => {
                     </h2>
 
                     <SkillItem
-                        image={'firebase.png'}
+                        image={'images/firebase.png'}
                         title={'Firebase'}
                         content={'Helps you build and grow apps users love.'}
                     />
                     <SkillItem
-                        image={'ggclound.png'}
+                        image={'images/ggclound.png'}
                         title={'Google Clound Console'}
                         content={`Google Cloud computing services.`}
                     />
 
                     <SkillItem
-                        image={'graphql.png'}
+                        image={'images/graphql.png'}
                         title={'RESTfulAPI, GraphQL'}
                         content={'An query language for your API.'}
                     />
                     <SkillItem
-                        image={'nest.webp'}
+                        image={'images/nest.webp'}
                         title={'Express, NestJS, Laravel, Django'}
                         content={'Some powerful frameworks.'}
                     />
                     <SkillItem
-                        image={'docker.png'}
+                        image={'images/docker.png'}
                         title={'Docker Engine'}
                         content={'To build, share, and run app anywhere.'}
                     />

@@ -3,7 +3,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Education from './pages/Education';
+import MyProjects from './pages/MyProjects';
 import Home from './pages/Home';
 import MyLife from './pages/MyLife';
 import Skills from './pages/Skills';
@@ -19,7 +19,7 @@ function App() {
             <Header arrRef={[homeRef, aboutRef, educationRef, skillsRef,hobbiesRef, contactRef]} />
             <Home ref={homeRef}/>
             <About ref={aboutRef}/>
-            <Education  ref={educationRef}/>
+            <MyProjects  ref={educationRef}/>
             <Skills ref={skillsRef}/>
             <MyLife ref={hobbiesRef}/>
             <Contact ref={contactRef}/>

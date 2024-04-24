@@ -3,9 +3,9 @@ import { forwardRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ExperienceColumn from '../components/experiences/ExperiencesColumn';
 
-const Education = forwardRef((props, ref) => {
-    const [educationData, setEducationData] = useState([]);
-    const [experiencesData, setExperiencesData] = useState([]);
+const MyProjects = forwardRef((props, ref) => {
+    const [basicData, setBasicData] = useState([]);
+    const [advancedData, setAdvancedData] = useState([]);
     useEffect(() => {
         const data = [
             {
@@ -44,19 +44,19 @@ const Education = forwardRef((props, ref) => {
                 link: 'https://github.com/lequanphat/travel-website',
             },
         ];
-        setEducationData(data);
-        setExperiencesData(ex_data);
+        setBasicData(data);
+        setAdvancedData(ex_data);
     }, []);
 
     return (
         <Container id="education" ref={ref}>
             <h2 className="heading">
-                My <span>Journey</span>
+                My <span>Projects</span>
                 <span className="animate"></span>
             </h2>
             <div className="education-row">
-                <ExperienceColumn title={'Education'} data={educationData} />
-                <ExperienceColumn title={'Experiences'} data={experiencesData} right={'right'} />
+                <ExperienceColumn title={'Basic projects'} data={basicData} />
+                <ExperienceColumn title={'Advanced projects'} data={advancedData} right={'right'} />
             </div>
         </Container>
     );
@@ -69,6 +69,7 @@ const Container = styled.section`
     align-items: center;
     min-height: 100vh;
     background-color: var(--bg-color);
+
     .animate {
         position: absolute;
         top: 0;
@@ -102,4 +103,4 @@ const Container = styled.section`
         }
     }
 `;
-export default Education;
+export default MyProjects;

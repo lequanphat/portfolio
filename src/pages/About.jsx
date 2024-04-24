@@ -47,7 +47,8 @@ const About = forwardRef((props, ref) => {
                     </div>
                     <div className="about-right">
                         <div className="about-img">
-                            <img src="me.jpg" alt="me" />
+                            <img className="cover-image" src="images/me.jpg" alt="me" />
+                            <img className="hidden-image" src="images/also-me.jpg" alt="me" />
                             <span className="circle-spin"></span>
                             <span className="animate"></span>
                         </div>
@@ -90,6 +91,7 @@ const Container = styled.section`
     flex-direction: column;
     justify-content: center;
     background-color: var(--second-bg-color);
+
     .animate {
         position: absolute;
         top: 0;
@@ -150,6 +152,16 @@ const Container = styled.section`
             border-radius: 50%;
             border: 0.2rem solid var(--main-color);
         }
+        .hidden-image {
+            display: none;
+        }
+        &:hover .hidden-image {
+            display: block;
+        }
+        &:hover .cover-image {
+            display: none;
+        }
+
         .circle-spin {
             position: absolute;
             width: 100%;

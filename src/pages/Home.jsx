@@ -47,11 +47,11 @@ const Home = forwardRef((props, ref) => {
             </div>
             <div className="home-object">
                 <div className="home-video">
-                    <video src="home.mp4" autoPlay loop muted className="video-home" />
+                    <video src="videos/home.mp4" autoPlay loop muted className="video-home" />
                 </div>
-                <img className="github" src="github.png" />
-                <img className="copilot" src="copilot.png" />
-                <img className="hanhtinh" src="hanhtinh.png" />
+                <img className="github" src="images/github.png" />
+                <img className="copilot" src="images/copilot.png" />
+                <img className="planet" src="images/planet.png" />
 
                 <span className="animate"></span>
             </div>
@@ -127,11 +127,11 @@ const Container = styled.section`
             left: 0;
             width: 120px;
         }
-        .hanhtinh {
+        .planet {
             position: absolute;
             top: 20%;
-            right: 0;
-            width: 70px;
+            right: 10%;
+            width: 60px;
         }
         .animate {
             background-color: #040e1e;
