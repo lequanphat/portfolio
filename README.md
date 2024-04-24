@@ -2,4 +2,4 @@
 
 ### Deploy here
 
-Go to my site 👉 [QuanPhat.dev](https://lequanphat.github.io/lequanphat/)
+Go to my site 👉 [lequanphat.dev](https://lequanphat.github.io/lequanphat/)

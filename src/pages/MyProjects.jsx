@@ -6,46 +6,43 @@ import ExperienceColumn from '../components/experiences/ExperiencesColumn';
 const MyProjects = forwardRef((props, ref) => {
     const [basicData, setBasicData] = useState([]);
     const [advancedData, setAdvancedData] = useState([]);
+    const SHEET_ID = '1y8jRDoDKE2tvQiisREg3GSfUIHhah6818OwBFJbNgAU';
+    const SHEET_TITLE_1 = 'basic-projects';
+    const SHEET_TITLE_2 = 'advanced-projects';
+    const SHEET_RANGE = 'B4:E8';
+    const FULL_URL_1 = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_TITLE_1}&range=${SHEET_RANGE}`;
+    const FULL_URL_2 = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_TITLE_2}&range=${SHEET_RANGE}`;
+
     useEffect(() => {
-        const data = [
-            {
-                period: '2018 - 2021',
-                title: 'Student in Vinh Binh High School',
-                content: `During the period from 2018 to 2021, I was a student at Vinh Binh High School. There are even many new things waiting, which will be shared soon.`,
-            },
-            {
-                period: '2021 - 2025',
-                title: 'Student in SaiGon University',
-                content: `Driven by my strong love for coding, I thrive on challenges to further develop myself.`,
-            },
-            {
-                period: '2025 - 2099',
-                title: 'Comming Soon',
-                content: `Comming Soon`,
-            },
-        ];
-        const ex_data = [
-            {
-                period: '2023 - Present',
-                title: 'Furniture Shop - Ecommerce',
-                content: `Building a furniture sales management website with all the features for a modern online experience using Laravel, Bootstrap, JQuery and various other technologies.`,
-                link: 'https://github.com/lequanphat/furniture_shop',
-            },
-            {
-                period: '2022 - 2023',
-                title: 'Realtime VideoCall, Chat Application',
-                content: `Building a real-time messaging, calling, and video call application with ReactJS, NestJS, MongoDB, MUI, SocketIO, WebRTC and various other technologies.`,
-                link: 'https://github.com/lequanphat/chat-app',
-            },
-            {
-                period: '2021 - 2022',
-                title: 'Travel Tickets Booking',
-                content: `Design and build travel ticket booking website interface using pure HTML, CSS, and JavaScript.`,
-                link: 'https://github.com/lequanphat/travel-website',
-            },
-        ];
-        setBasicData(data);
-        setAdvancedData(ex_data);
+        fetch(FULL_URL_1)
+            .then((res) => res.text())
+            .then((text) => {
+                const json = JSON.parse(text.substring(47).slice(0, -2));
+                const data = json.table.rows.map((row) => {
+                    return {
+                        period: row.c[0].v,
+                        title: row.c[1].v,
+                        content: row.c[2].v,
+                        link: row.c[3] ? row.c[3].v : '',
+                    };
+                });
+                setBasicData(data);
+            });
+
+        fetch(FULL_URL_2)
+            .then((res) => res.text())
+            .then((text) => {
+                const json = JSON.parse(text.substring(47).slice(0, -2));
+                const data = json.table.rows.map((row) => {
+                    return {
+                        period: row.c[0].v,
+                        title: row.c[1].v,
+                        content: row.c[2].v,
+                        link: row.c[3] ? row.c[3].v : '',
+                    };
+                });
+                setAdvancedData(data);
+            });
     }, []);
 
     return (

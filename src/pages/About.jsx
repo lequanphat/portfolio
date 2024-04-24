@@ -1,8 +1,29 @@
 /* eslint-disable react/display-name */
-import { forwardRef } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const About = forwardRef((props, ref) => {
+    const [myData, setMyData] = useState([]);
+    const SHEET_ID = '1y8jRDoDKE2tvQiisREg3GSfUIHhah6818OwBFJbNgAU';
+    const SHEET_TITLE = 'about';
+    const SHEET_RANGE = 'B4:C11';
+    const FULL_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_TITLE}&range=${SHEET_RANGE}`;
+
+    useEffect(() => {
+        fetch(FULL_URL)
+            .then((res) => res.text())
+            .then((text) => {
+                const json = JSON.parse(text.substring(47).slice(0, -2));
+                console.log(json.table.rows);
+                const data = json.table.rows.map((row) => {
+                    return {
+                        title: row.c[0]?.v,
+                        content: row.c[1]?.v,
+                    };
+                });
+                setMyData(data);
+            });
+    }, []);
     return (
         <Container id="about" ref={ref}>
             <div>
@@ -13,36 +34,16 @@ const About = forwardRef((props, ref) => {
                 <div className="about-wrapper">
                     <div className="about-content">
                         <div className="about-details">
-                            <div className="about-detail-item">
-                                <p>Full name:</p>
-                                <a>Le Quan Phat</a>
-                                <span className="animate"></span>
-                            </div>
-                            <div className="about-detail-item">
-                                <p>Birth date:</p>
-                                <a>24/11/2003</a>
-                                <span className="animate"></span>
-                            </div>
-                            <div className="about-detail-item">
-                                <p>Email address:</p>
-                                <a href="mailto:lequanphat3579@gmail.com">lequanphat3579@gmail.com</a>
-                                <span className="animate"></span>
-                            </div>
-                            <div className="about-detail-item">
-                                <p>Phone number:</p>
-                                <a href="tel:+84383642670">+84383642670</a>
-                                <span className="animate"></span>
-                            </div>
-                            <div className="about-detail-item">
-                                <p>Address:</p>
-                                <a>District 8, Ho Chi Minh City, Viet Nam</a>
-                                <span className="animate"></span>
-                            </div>
-                            <div className="about-detail-item">
-                                <p>Specialization:</p>
-                                <a>Software Engineer</a>
-                                <span className="animate"></span>
-                            </div>
+                            {myData.map((item, index) => {
+                                if (index > 5) return;
+                                return (
+                                    <div key={index} className="about-detail-item">
+                                        <p>{item.title}:</p>
+                                        <a>{item.content}</a>
+                                        <span className="animate"></span>
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
                     <div className="about-right">
@@ -60,23 +61,15 @@ const About = forwardRef((props, ref) => {
                 </div>
                 <div className="about-wrapper" style={{ marginTop: '3rem' }}>
                     <div className="further-item">
-                        <p className="further">Future Aspirations: </p>
-                        <p className="further-details">
-                            Aspiring to evolve into a proficient Full-Stack Developer, I am dedicated to mastering both
-                            the Frontend and Backend realms of web development. My goal is to seamlessly integrate
-                            diverse technologies, delivering robust and user-centric solutions.
-                        </p>
+                        <p className="further">{myData[6]?.title}:</p>
+                        <p className="further-details">{myData[6]?.content}</p>
                         <span className="animate"></span>
                     </div>
                 </div>
                 <div className="about-wrapper">
                     <div className="further-item">
-                        <p className="further">Conclusion: </p>
-                        <p className="further-details">
-                            Finally, I&apos;d like to say two things. First, Django is a great framework for backend
-                            developers, but not for me. Second, your grandmother can run faster than your code, remember
-                            this :))
-                        </p>
+                    <p className="further">{myData[7]?.title}:</p>
+                        <p className="further-details">{myData[7]?.content}</p>
                         <span className="animate"></span>
                     </div>
                 </div>
